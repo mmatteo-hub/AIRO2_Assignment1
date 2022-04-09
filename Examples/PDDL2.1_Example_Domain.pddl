@@ -1,6 +1,8 @@
 (define (domain rover_domain)
 
     (:requirements 
+        ; This is required to have the basic action effects
+        :strips
         ; This is required to define types for objects
         :typing
         ; This is required to define numeric fluents
@@ -71,15 +73,7 @@
         ; at end: effects that are applied when the action ends.
         :effect
 	        (and
-	            (at start (not (at ?rover ?from)))
-
-                ; It is also possible to define effects that apply over time
-                ; The *2 means that for every unit of time, the value of the change is multiplied by 2.
-                (increase (battery_amount ?rover) (*2 #t))
-
-	            (at end (at ?rover ?to))
-	            (at end (been_at ?rover ?to))
-                (at end (increase (distance_travelled) 5))
+                (at end (assign (battery_amount ?rover) 5))
             )
 	)
 )
