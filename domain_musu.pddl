@@ -21,6 +21,8 @@
     (:predicates     
         ; True iff ?m is carrying ?c
         (is_carrying ?m - mover ?c - crate)
+        ; If ?c is currently being targetted by some mover
+        (targetted ?c - crate)
     )
 
     (:functions
@@ -52,12 +54,16 @@
                 (> (distance_from_lb ?c) 0)
                 ; ?m must be near loading bay before going to pick a crate
                 (<= (distance_from_lb ?m) 1)
+                ; ?c must not be already the targer of some mover
+                (not (targetted ?c))
             )
         :effect 
             (and
                 (assign (destination ?m) (distance_from_lb ?c))
                 ; the distance_from_lb ?m must increase, velocity is positive
                 (assign (velocity ?m) 10) (assign (velocity_dir) 1)
+                ; mark ?c as targetted by this mover
+                (targetted ?c)
             )
     )
 
@@ -156,6 +162,8 @@
                 (is_carrying ?m ?c)
                 ; ?c has no more a distance from lb because carried by ?r
                 (assign (distance_from_lb ?c) -1)
+                ; when ?c is pick is not considered targetted anymore
+                (not (targetted ?c))
             )
     )
     
