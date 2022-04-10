@@ -63,11 +63,7 @@
             )
         :effect 
             (and
-<<<<<<< HEAD
-                ; the destination is the distance from the Loading Bay
-=======
                 ; Mark the positon of ?c as the destination
->>>>>>> 993080e1f691ef66ab49e91f52881283ff30a280
                 (assign (destination ?m) (distance_from_lb ?c))
                 ; The distance_from_lb ?m must increase, velocity is positive
                 (assign (velocity ?m) 10) (assign (velocity_dir) 1)
@@ -90,7 +86,6 @@
             )
         :effect 
         (and 
-            ; the destination is 1 : means near the Loading Bay
             (assign (destination ?m) 1)
             ; the distance_from_lb ?m must decrease, velocity is negative
             (assign (velocity ?m) (/ 100 (weight ?c))) (assign (velocity_dir) -1)
@@ -111,52 +106,12 @@
             )
         :effect 
             (and 
-                ; the destination is 1 : means near the Loading Bay
                 (assign (destination ?m) 0)
                 ; the distance_from_lb ?m must decrease, velocity is negative
                 (assign (velocity ?m) (/ 100 (weight ?c))) (assign (velocity_dir) -1)
             )
     )
 
-<<<<<<< HEAD
-    (:process LOAD
-        :parameters
-            (?l - loader)
-        :precondition
-            (and
-                ; ?l takes some time to load
-                (> (remaining_time_to_load ?l) 0)
-            )
-        :effect
-            (and
-                ; decreaase the remaining time by 1 unit proportionally to the time
-                (decrease (remaining_time_to_load ?l) (* #t 1))
-            )
-    )
-
-    (:event ON_LOAD_FINISH
-        :parameters
-            (?l - loader ?c - crate)
-
-        :precondition
-            (and
-                ; ?l has finished loading when the remaining time is 0
-                (= (remaining_time_to_load ?l) 0)
-                ; the loader is now loading something
-                (is_loading ?l ?c)
-            )
-
-        :effect
-            (and
-                ; distance of ?c from Loading Bay so not considered any longer
-                (assign (distance_from_lb ?c) -3)
-                ; the loader is no more loading
-                (not (is_loading ?l ?c))
-            )
-    )
-
-=======
->>>>>>> 993080e1f691ef66ab49e91f52881283ff30a280
     (:process MOVE
         :parameters (?m - mover)
         :precondition 
