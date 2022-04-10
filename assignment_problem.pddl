@@ -2,6 +2,7 @@
     (:domain warehouse)
     (:objects 
         m1 m2 - mover
+        l - loader
         c1 c2 - crate
     )
 
@@ -19,13 +20,15 @@
         (= (distance_from_lb c1) 40) (= (weight c1) 25)
         (= (distance_from_lb c2) 45) (= (weight c2) 40)
 
-        (= (remaining_time_to_load) 0)
+        (= (lift_capability l) 100)
+        (= (distance_from_lb l) 0)
+        (= (remaining_time_to_load l) 0)
     )
 
     (:goal 
         (and
-            (= (distance_from_lb m1) (distance_from_lb c1))
-            (= (distance_from_lb m2) (distance_from_lb c2))
+            (= (distance_from_lb c1) -2)
+            (= (distance_from_lb c2) -2)
         )
     )
 

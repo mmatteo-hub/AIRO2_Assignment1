@@ -145,7 +145,7 @@
         :effect
             (and
                 ; distance of ?c from Loading Bay so not considered any longer
-                (assign (distance_from_lb ?c) -1)
+                (assign (distance_from_lb ?c) -2)
             )
     )
 
