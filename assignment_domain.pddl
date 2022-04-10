@@ -23,9 +23,12 @@
     )
 
     (:functions
-        ; Each object ?o has a distance from the Loading Bay
+        ; Each object ?o has a distance from the Loading Bay. Particular cases:
+        ; -1 : The object is picked by a mover
+        ; -2 : The object is picked by a loder
+        ; -3 : The object is delivered on the Conveyor Belt
         (distance_from_lb ?o - object)  
-        ; Each object ?o has a distance from the Conveyor Belt
+        ; The remaing time that ?l need to load something on the Conveyor Belt
         (remaining_time_to_load ?l - loader)
         ; Each ?c has a certain weight
         (weight ?c - crate)
@@ -106,26 +109,12 @@
             )
     )
 
-    (:action load_crate_lb
-        :parameters 
-            (?l - loader ?c - crate)
-        :precondition 
-        (and 
-            (= (distance_from_lb ?c) 0)
-            (not(is_loading ?l ?c))
-            (> (lift_capability ?l) (weight ?c))
-        )
-        :effect 
-            (and
-                ; initialize the remaining time to load to 4 unit time
-                (assign (remaining_time_to_load ?l) 4)
-            )
-    )
-
     (:process LOAD
-        :parameters (?l - loader)
+        :parameters
+            (?l - loader)
         :precondition
             (and
+                ; ?l takes some time to load
                 (> (remaining_time_to_load ?l) 0)
             )
         :effect
@@ -137,15 +126,19 @@
     (:event ON_LOAD_FINISH
         :parameters
             (?l - loader ?c - crate)
+
         :precondition
             (and
+                ; ?l has finished loading when the remaining time is 0
                 (= (remaining_time_to_load ?l) 0)
                 (is_loading ?l ?c)
             )
+
         :effect
             (and
                 ; distance of ?c from Loading Bay so not considered any longer
-                (assign (distance_from_lb ?c) -2)
+                (assign (distance_from_lb ?c) -3)
+                (not (is_loading ?l ?c))
             )
     )
 
@@ -156,6 +149,7 @@
                 ; ?m must move if it's velocity is more that 0
                 (> (velocity ?m) 0)
             )
+
         :effect 
             (and
                 ; ? must is moved based on the velocity and the direction of the velocity
@@ -166,6 +160,7 @@
     (:event ON_DESTINATION_ARRIVAL
         :parameters 
             (?m - mover)
+
         :precondition 
             (and
                 ; To arrive at destination, ?m must first be moving
@@ -174,6 +169,7 @@
                 ; without worring about the direction of travel
                 (<= (*(destination ?m)(velocity_dir ?m)) (*(distance_from_lb ?m)(velocity_dir ?m)))
             )
+
         :effect 
             (and
                 ; ?m arrived at destination so it is not moving anymore
@@ -182,8 +178,33 @@
                 (assign (distance_from_lb ?m) (destination ?m))
             )
     )
-    
-    (:action pick
+
+    (:action pick_loader
+        :parameters 
+            (?l - loader ?c - crate)
+
+        :precondition 
+            (and 
+                ; ?l and ?c must be at the same spot
+                (= (distance_from_lb ?c) (distance_from_lb ?l))
+                ; ?l must not be loading any crate to load ?c
+                (forall (?c1 - crate) (not (is_loading ?l ?c1)))
+                ; ?l must be able to pick ?c
+                (> (lift_capability ?l) (weight ?c))
+            )
+
+        :effect 
+            (and
+                ; initialize the remaining time to load to 4 unit time
+                (assign (remaining_time_to_load ?l) 4)
+                ; ?l is now starting to laod ?c
+                (is_loading ?l ?c)
+                ; ?c is picked by ?l
+                (assign (distance_from_lb ?c) -2)
+            )
+    )
+
+    (:action pick_mover
         :parameters
             (?m - mover ?c - crate)
 
@@ -202,7 +223,7 @@
             (and
                 ; ?m is now carrying ?c
                 (is_carrying ?m ?c)
-                ; ?c has no more a distance from lb because carried by ?r
+                ; ?c is carried by ?m
                 (assign (distance_from_lb ?c) -1)
                 ; when ?c is pick is not considered targetted anymore
                 (not (targetted ?c))
