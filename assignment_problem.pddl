@@ -23,19 +23,28 @@
 
         ; assign the distance and the capability of the loader
         (= (distance_from_lb l) 0)(= (lift_capability l) 100)
+<<<<<<< HEAD
         ; assign the remaining time for loading to 0 (initialization)
         (= (remaining_time_to_load l) 0)
+=======
+        (= (loading_time l) 0)
+>>>>>>> 993080e1f691ef66ab49e91f52881283ff30a280
     )
 
     (:goal 
         (and
+<<<<<<< HEAD
             ; distance from the Loading Bay to '-3' means the crate is totally loaded and not considered any longer
             (= (distance_from_lb c1) -3)
             (= (distance_from_lb c2) -3)
+=======
+            (is_delivered c1)
+            (is_delivered c2)
+>>>>>>> 993080e1f691ef66ab49e91f52881283ff30a280
         )
     )
 
-    (:metric minimize 
-        (total-time)
+    (:metric 
+        minimize (total-time)
     )
 )
