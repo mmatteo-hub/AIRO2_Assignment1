@@ -21,17 +21,17 @@
         (= (distance_from_lb c2) 45) (= (weight c2) 40)
 
         (= (distance_from_lb l) 0)(= (lift_capability l) 100)
-        (= (remaining_time_to_load l) 0)
+        (= (loading_time l) 0)
     )
 
     (:goal 
         (and
-            (= (distance_from_lb c1) -3)
-            (= (distance_from_lb c2) -3)
+            (is_delivered c1)
+            (is_delivered c2)
         )
     )
 
-    (:metric minimize 
-        (total-time)
+    (:metric 
+        minimize (total-time)
     )
 )
