@@ -18,9 +18,7 @@
         ; True iff ?r is currently grabbing ?c
         (is_grabbing ?r - robot ?c - crate)
         ; True iff ?c has been loaded on the Conveyor Belt
-        (is_delivered ?c)
-        ; If ?c is currently being targetted by some mover
-        (targetted ?c - crate)
+        (is_delivered ?c - crate)
     )
 
     (:functions
@@ -54,21 +52,37 @@
                 (<= (distance_from_lb ?m) 1)
                 ; ?m must not be carrying somethine else
                 (forall (?c1 - crate) (not (is_grabbing ?m ?c1)))
-                ; ?c must not be already grabbed by another robot
+                ; ?c must not be already grabbed or serverved by another robot
                 (forall (?r - robot) (not (is_grabbing ?r ?c)))
                 ; ?c must not be delivered
                 (not (is_delivered ?c))
-                ; ?c must not be already the targer of another mover
-                (not (targetted ?c))
             )
         :effect 
             (and
                 ; Mark the positon of ?c as the destination
                 (assign (destination ?m) (distance_from_lb ?c))
                 ; The distance_from_lb ?m must increase, velocity is positive
-                (assign (velocity ?m) 10) (assign (velocity_dir) 1)
-                ; Mark ?c as targetted by this mover
-                (targetted ?c)
+                (assign (velocity ?m) 10) (assign (velocity_dir ?m) 1)
+            )
+    )
+
+    (:action move_crate_to_lb
+        :parameters 
+            (?m - mover ?c - crate)
+        :precondition 
+            (and 
+                ; ?m must not be already moving
+                (= (velocity ?m) 0)
+                ; ?m must be carrying ?c to be able to move it
+                (is_grabbing ?m ?c)
+                ; ?m must not already be at loading bay
+                (> (distance_from_lb ?m) 0)
+            )
+        :effect 
+            (and 
+                (assign (destination ?m) 0)
+                ; the distance_from_lb ?m must decrease, velocity is negative
+                (assign (velocity ?m) (/ 100 (weight ?c))) (assign (velocity_dir ?m) -1)
             )
     )
 
@@ -88,28 +102,8 @@
         (and 
             (assign (destination ?m) 1)
             ; the distance_from_lb ?m must decrease, velocity is negative
-            (assign (velocity ?m) (/ 100 (weight ?c))) (assign (velocity_dir) -1)
+            (assign (velocity ?m) (/ 100 (weight ?c))) (assign (velocity_dir ?m) -1)
         )
-    )
-
-    (:action move_crate_to_lb
-        :parameters 
-            (?m - mover ?c - crate)
-        :precondition 
-            (and 
-                ; ?m must not be already moving
-                (= (velocity ?m) 0)
-                ; ?m must be carrying ?c to be able to move it
-                (is_grabbing ?m ?c)
-                ; ?m must not already be at loading bay
-                (> (distance_from_lb ?m) 0)
-            )
-        :effect 
-            (and 
-                (assign (destination ?m) 0)
-                ; the distance_from_lb ?m must decrease, velocity is negative
-                (assign (velocity ?m) (/ 100 (weight ?c))) (assign (velocity_dir) -1)
-            )
     )
 
     (:process MOVE
@@ -205,6 +199,8 @@
             (and
                 ; ?l is no more grabbing ?c
                 (not (is_grabbing ?l ?c))
+                ; Resets the loading time of ?l
+                (assign (loading_time ?l) 0)
                 ; ?c is considered as delivered
                 (is_delivered ?c)
             )
@@ -235,8 +231,6 @@
                 (not (is_grabbing ?m ?c))
                 ; ?c has the same distance of ?m when leaved
                 (assign (distance_from_lb ?c) (distance_from_lb ?m))
-                ; when ?c is left, it is not considered targetted anymore
-                (not (targetted ?c))
             )
     )
 )
