@@ -17,15 +17,19 @@
         (= (distance_from_lb m2) 0) (= (lift_capability m2) 50) 
         (= (velocity m2) 0) (= (velocity_dir m2) 1) (= (destination m2) -1)
 
+        ; determining the distance from the loading bay and the weight of each crate
         (= (distance_from_lb c1) 40) (= (weight c1) 25)
         (= (distance_from_lb c2) 45) (= (weight c2) 40)
 
+        ; initialization of the loader. Distance and lift capability
         (= (distance_from_lb l) 0)(= (lift_capability l) 100)
+        ; loading time to '0' : initialized
         (= (loading_time l) 0)
     )
 
     (:goal 
         (and
+            ; both crate are delivered
             (is_delivered c1)
             (is_delivered c2)
         )
