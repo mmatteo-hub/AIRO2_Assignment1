@@ -100,6 +100,7 @@
             )
         :effect 
         (and 
+            ; destination '1' means the crate is near the loading bay
             (assign (destination ?m) 1)
             ; the distance_from_lb ?m must decrease, velocity is negative
             (assign (velocity ?m) (/ 100 (weight ?c))) (assign (velocity_dir ?m) -1)
