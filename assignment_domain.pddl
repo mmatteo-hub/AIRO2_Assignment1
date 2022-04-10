@@ -19,7 +19,7 @@
         ; If ?c is currently being targetted by some mover
         (targetted ?c - crate)
         ; If ?l is free then it can load a crate
-        (is_loading ?l - loader ?c - create)
+        (is_loading ?l - loader ?c - crate)
     )
 
     (:functions

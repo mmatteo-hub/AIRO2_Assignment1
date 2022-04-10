@@ -1,8 +1,7 @@
-(define (problem warehouse_1) 
+(define (problem warehouse_1)
     (:domain warehouse)
     (:objects 
         m1 m2 - mover
-        l - loader
         c1 c2 - crate
     )
 
@@ -20,7 +19,7 @@
         (= (distance_from_lb c1) 40) (= (weight c1) 25)
         (= (distance_from_lb c2) 45) (= (weight c2) 40)
 
-        ( = (remaining_time_to_load) 0)
+        (= (remaining_time_to_load) 0)
     )
 
     (:goal 
