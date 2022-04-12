@@ -1,5 +1,6 @@
 (define (problem warehouse_1)
     (:domain warehouse)
+    
     (:objects 
         m1 m2 - mover
         l - loader
