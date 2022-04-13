@@ -39,15 +39,18 @@
     (:init
         (= (position loading_bay) 0)
 
+        (is_mover m1)
         (= (position m1) 0) (= (destination m1) 0)
         (= (lift_capability m1) 50)
         (= (velocity m1) 10) (= (velocity_dir m1) 0)
 
+        (is_mover m2)
         (= (position m2) 0) (= (destination m2) 0)
         (= (lift_capability m2) 50)
         (= (velocity m2) 10) (= (velocity_dir m2) 0)
 
-        (= (position l1) 0)(= (destination l1) 0)
+        (is_loader l1)
+        (= (position l1) 0)
         (= (lift_capability l1) 100)
         (= (loading_time l1) -1)
 

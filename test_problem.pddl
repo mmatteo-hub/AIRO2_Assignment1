@@ -31,16 +31,18 @@
     (:init
         (= (position loading_bay) 0)
 
+        (is_mover m1)
         (= (position m1) 0) (= (destination m1) 0)
         (= (velocity m1) 10) (= (velocity_dir m1) 0) 
-        (= (lift_capability m1) 50) 
+        (= (lift_capability m1) 50)
 
+        (is_mover m2)
         (= (position m2) 0) (= (destination m2) 0)
         (= (velocity m2) 10) (= (velocity_dir m2) 0) 
-        (= (lift_capability m2) 50) 
+        (= (lift_capability m2) 50)
 
         (= (position c1) 40) (= (weight c1) 25)
-        (= (position c2) 45) (= (weight c2) 40)
+        (= (position c2) 100) (= (weight c2) 40)
         (= (position c3) 25) (= (weight c3) 90)
     )
 
@@ -48,7 +50,6 @@
         (and
             (= (position c1) (position loading_bay))
             (= (position c2) (position loading_bay))
-            (= (position c3) (position loading_bay))
         )
     )
 

@@ -13,6 +13,8 @@
         :disjunctive-preconditions
         ; Allows the usage of = to compare objects
         :equality
+        ; Allows the usage of when in action effects
+        :conditional-effects
         ; Allows the usage of processes and events
         :time
     )
@@ -23,16 +25,15 @@
         crate - waypoint
     )
 
-    (:predicates     
+    (:predicates
+        ; True iff ?r is the specified type
+        (is_loader ?r) (is_mover ?r)
         ; True iff ?r is currently grabbing ?c
         (is_grabbing ?r - robot ?c - crate)
-        ; True iff ?r1 should move together
-        (are_collaborating ?m1 - mover ?m2 - mover)
         ; True iff ?c has been loaded on the Conveyor Belt
         (is_delivered ?c - crate)
-
-        ; True iff ?r has executed an action (grab or release) on a crate
-        (on_crate_action ?r)
+        ; True iff ?r1 should move together
+        (are_collaborating ?m1 - mover ?m2 - mover)
     )
 
     (:functions
@@ -45,7 +46,7 @@
         (position ?o - object)
 
         ; The current destination of ?r
-        (destination ?r - robot)
+        (destination ?m - mover)
         ; The velocity at which ?m moves when travelling (always non negative)
         (velocity ?m - mover)
         ; The direction of the velocity (can be -1, 0 or 1)
@@ -62,7 +63,7 @@
             (and
                 ; ?w must have a valid position (non negative)
                 (>= (position ?w) 0)
-                ; ?m must be arrived at the previous destination
+                ; ?m must be at the previous destination
                 (= (destination ?m) (position ?m))
                 ; ?m must not be already moving
                 (= (velocity_dir ?m) 0)
@@ -71,8 +72,11 @@
             )
         :effect 
             (and
-                ; Set the position of ?w as the destination
+                ; ?m destionation is now the position of ?w
                 (assign (destination ?m) (position ?w))
+                ; ?m has a vector velocity poiting toward the destination
+                (when (> (position ?w) (position ?m)) (assign (velocity_dir ?m) 1))
+                (when (< (position ?w) (position ?m)) (assign (velocity_dir ?m) -1))
             )
     )
 
@@ -81,11 +85,11 @@
             (?m1 - mover ?m2 - mover ?w - waypoint)
         :precondition 
             (and
-                ; ?m1 and ?m2 must not be the same robot
+                ; ?m1 and ?m2 must not be the same
                 (not (= ?m1 ?m2))
                 ; ?w must have a valid position (non negative)
                 (>= (position ?w) 0)
-                ; ?m1 and ?m2 must be arrived at their previous destination
+                ; ?m1 and ?m2 must be at their previous destination
                 (= (destination ?m1) (position ?m1))
                 (= (destination ?m2) (position ?m2))
                 ; ?m1 and ?m2 must not be already moving
@@ -96,98 +100,14 @@
             )
         :effect 
             (and
-                ; Set the position of ?w as the destination
+                ; ?m1 and ?m2 destionation is now the position of ?w
                 (assign (destination ?m1) (position ?w))
                 (assign (destination ?m2) (position ?w))
-            )
-    )
-    
-    (:event SET_VELOCITY_DIR_POSITIVE
-        :parameters 
-            (?m - mover)
-        :precondition 
-            (and
-                (> (destination ?m) (position ?m))
-                (= (velocity_dir ?m) 0)
-            )
-        :effect 
-            (and
-                (assign (velocity_dir ?m) 1)
-            )
-    )
-
-    (:event SET_VELOCITY_DIR_NEGATIVE
-        :parameters 
-            (?m - mover)
-        :precondition 
-            (and
-                (< (destination ?m) (position ?m))
-                (= (velocity_dir ?m) 0)
-            )
-        :effect 
-            (and
-                (assign (velocity_dir ?m) -1)
-            )
-    )
-
-    (:event ON_MOVER_GRAB_CRATE
-        :parameters
-            (?m - mover ?c - crate)
-        :precondition
-            (and
-                (on_crate_action ?m) (is_grabbing ?m ?c)
-                (not (exists (?m1 - mover) (are_collaborating ?m ?m1)))
-            )  
-        :effect
-            (and
-                (not (on_crate_action ?m))
-                (assign (velocity ?m) (/ 100 (weight ?c)))
-            )
-    )
-
-    (:event ON_LOADER_GRAB_CRATE
-        :parameters
-            (?l - loader ?c - crate)
-        :precondition
-            (and
-                (on_crate_action ?l) (is_grabbing ?l ?c)
-            )  
-        :effect
-            (and
-                (not (on_crate_action ?l))
-                (assign (loading_time ?l) 4)
-            )
-    )
-
-    (:event ON_2MOVER_GRAB_CRATE
-        :parameters 
-            (?m1 - mover ?m2 - mover ?c - crate)
-        :precondition
-            (and
-                (not (= ?m1 ?m2))
-                (are_collaborating ?m1 ?m2)
-                (on_crate_action ?m1) (is_grabbing ?m1 ?c)
-                (on_crate_action ?m2) (is_grabbing ?m2 ?c)
-            )
-        :effect
-            (and
-                (not (on_crate_action ?m1))(not (on_crate_action ?m2))
-                (assign (velocity ?m1) (/ 150 (weight ?c)))
-                (assign (velocity ?m2) (/ 150 (weight ?c)))
-            )
-    )
-
-    (:event ON_MOVER_RELEASE_CRATE
-        :parameters
-            (?m - mover)
-        :precondition (and
-            (on_crate_action ?m)
-            (forall (?c - crate) (not (is_grabbing ?m ?c)))
-        )
-        :effect 
-            (and
-                (not (on_crate_action ?m))
-                (assign (velocity ?m) 10)
+                ; ?m1 and ?m2 have a vector velocity poiting toward the destination
+                (when (> (position ?w) (position ?m1)) (assign (velocity_dir ?m1) 1))
+                (when (< (position ?w) (position ?m1)) (assign (velocity_dir ?m1) -1))
+                (when (> (position ?w) (position ?m2)) (assign (velocity_dir ?m2) 1))
+                (when (< (position ?w) (position ?m2)) (assign (velocity_dir ?m2) -1))
             )
     )
 
@@ -233,8 +153,8 @@
 
         :precondition 
             (and 
-                ; ?r must be at destination to grab something
-                (= (destination ?r) (position ?r))
+                ; loader is always at destination
+                (or (is_loader ?r) (= (destination ?r) (position ?r)))
                 ; ?r and ?c must be at the same spot
                 (= (position ?c) (position ?r))
                 ; ?r must not be currently be grabbing anything else
@@ -252,7 +172,10 @@
                 ; ?c position is valid only if on ground
                 (assign (position ?c) -1)
                 ; ?r is now grabbing ?c
-                (on_crate_action ?r) (is_grabbing ?r ?c)
+                (is_grabbing ?r ?c)
+                ; Assign the correct parameter to the robot ?r
+                (when (is_loader ?r) (assign (loading_time ?r) 4))
+                (when (is_mover ?r) (assign (velocity ?r) (/ 100 (weight ?c))))
             )
     )
 
@@ -286,8 +209,10 @@
                 (assign (position ?c) -1)
                 ; ?m1 and ?m2 are now both grabbing ?c
                 (are_collaborating ?m1 ?m2)(are_collaborating ?m2 ?m1)
-                (on_crate_action ?m1)(is_grabbing ?m1 ?c)
-                (on_crate_action ?m2)(is_grabbing ?m2 ?c)
+                (is_grabbing ?m1 ?c)(is_grabbing ?m2 ?c)
+                ; Assign the correct velocity to ?m1 and ?m2
+                (assign (velocity ?m1) (/ 150 (weight ?c)))
+                (assign (velocity ?m2) (/ 150 (weight ?c)))
             )
     )
 
@@ -308,7 +233,7 @@
                     ; If not at loading bay, ?m can always leave ?c
                     (> (position ?m) 0)
                     ; If at loading bay, ?m can leave ?c if no loader is operating
-                    (forall (?l - loader ?c1 - crate) (not (is_grabbing ?l ?c1))) 
+                    (forall (?l - loader ?c1 - crate) (not (is_grabbing ?l ?c1)))
                 )
             )
 
@@ -317,7 +242,9 @@
                 ; ?c has the same distance of ?m when leaved
                 (assign (position ?c) (position ?m))
                 ; ?m is not not carrying ?c
-                (on_crate_action ?m) (not (is_grabbing ?m ?c))
+                (not (is_grabbing ?m ?c))
+                ; ?m has not the default velocity
+                (assign (velocity ?m) 10)
             )
     )
 
@@ -351,8 +278,10 @@
                 (assign (position ?c) (position ?m1))
                 ; ?m1 and ?m2 are not carrying ?c anymore
                 (not (are_collaborating ?m1 ?m2))(not (are_collaborating ?m2 ?m1))
-                (on_crate_action ?m1)(not (is_grabbing ?m1 ?c))
-                (on_crate_action ?m2)(not (is_grabbing ?m2 ?c))
+                (not (is_grabbing ?m1 ?c))(not (is_grabbing ?m2 ?c))
+                ; ?m1 and ?m2 have now the default velocity
+                (assign (velocity ?m1) 10)
+                (assign (velocity ?m2) 10)
             )
     )
 
