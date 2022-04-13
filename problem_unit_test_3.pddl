@@ -1,20 +1,17 @@
-; RUN WITH
-; java -jar .\ENHSP\enhsp.jar -o .\assignment_domain.pddl -f .\problem_unit_test_1.pddl -planner opt-blind
-
 ; THE CORRECT OUTPUT OF THIS TEST SHOULD BE
-; 0: (move_to_crate m2 c2)
+; 0: m2 moves to c2
 ; 0.0: -----waiting---- [1.0]
-; 1.0: (move_to_crate m1 c1)
+; 1.0: m1 moves to c1
 ; 1.0: -----waiting---- [5.0]
-; 5.0: (grab m2 c2)
-; 5.0: (grab m1 c1)
-; 5.0: (move_crate_to_lb m2 c2)
+; 5.0: m2 grabs c2
+; 5.0: m1 grabs c1
+; 5.0: m2 moves to loading bay
 ; 5.0: -----waiting---- [12.0]
-; 12.0: (move_crate_to_lb m1 c1)
+; 12.0: m1 moves to loading bay
 ; 12.0: -----waiting---- [22.0]
-; 22.0: (leave m1 c1)
+; 22.0: m1 leaves c1
 ; 22.0: -----waiting---- [23.0]
-; 23.0: (leave m2 c2)
+; 23.0: m2 leaves c2
 
 (define (problem warehouse_1)
     (:domain warehouse)

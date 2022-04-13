@@ -24,7 +24,6 @@
 
         ; initialization of the loader. Distance and lift capability
         (= (distance_from_lb l) 0)(= (lift_capability l) 100)
-        ; loading time to '0' : initialized
         (= (loading_time l) 0)
     )
 
