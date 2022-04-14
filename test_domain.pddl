@@ -165,13 +165,11 @@
                     (and (is_mover ?r) (= (destination ?r) (position ?r)))
                 )
                 ; ?r and ?c must be at the same spot
+                ; NB. No check for delivered because position is valid
+                ; NB. No check for others grabbing because position is valid
                 (= (position ?c) (position ?r))
                 ; ?r must not be currently be grabbing anything else
                 (forall (?c1 - crate) (not (is_grabbing ?r ?c1)))
-                ; ?c must not be currently be grabbed by another robot
-                (forall (?r1 - robot) (not (is_grabbing ?r1 ?c)))
-                ; ?c must not be delivered
-                (not (is_delivered ?c))
                 ; ?r must be able to pick ?c
                 (> (lift_capability ?r) (weight ?c))
             )
@@ -199,16 +197,13 @@
                 (= (destination ?m1) (position ?m1))
                 (= (destination ?m2) (position ?m2))
                 ; ?m1 and ?m2 and ?c must be at the same position
+                ; NB. No check for delivered because position is valid
+                ; NB. No check for others grabbing because position is valid
                 (= (position ?c) (position ?m1))
                 (= (position ?c) (position ?m2))
-                ; Both ?m1 and ?m2 must not be collaborating with anyone else
-                (not (exists (?m - mover) (or (are_collaborating ?m1 ?m) (are_collaborating ?m2 ?m))))
                 ; Both ?m1 and ?m2 must no be grabbing something else
+                ; NB. No check for collaboration with others (only if carrying something)
                 (not (exists (?c1 - crate) (or (is_grabbing ?m1 ?c1) (is_grabbing ?m2 ?c1))))
-                ; ?c must not be currently be grabbed by another robot
-                (forall (?m1 - robot) (not (is_grabbing ?m1 ?c)))
-                ; ?c must not be delivered
-                (not (is_delivered ?c))
                 ; ?m must be able to pick ?c
                 (> (+ (lift_capability ?m1)(lift_capability ?m2)) (weight ?c))
             )
@@ -296,11 +291,11 @@
 
     (:process LOAD
         :parameters
-            (?l - loader ?c - crate)
+            (?l - loader)
         :precondition
             (and
-                ; ?l must be grabbing ?c to load it
-                (is_grabbing ?l ?c)
+                ; ?l must load when the reimaing time is greater than 0
+                (> (loading_time ?l) 0)
             )
         :effect
             (and
@@ -315,7 +310,7 @@
 
         :precondition
             (and
-                ; ?l takes 4 units of time to load a create
+                ; ?l must have finished loading
                 (= (loading_time ?l) 0)
                 ; ?l must be grabbing ?c to load it
                 (is_grabbing ?l ?c)
@@ -327,8 +322,8 @@
                 (assign (loading_time ?l) -1)
                 ; ?l is no more grabbing ?c
                 (not (is_grabbing ?l ?c))
-                ; ?c is considered as delivered
-                (is_delivered ?c)
+                ; ?c is considered as delivered and the position is not valid anymore
+                (is_delivered ?c) (assign (position ?c) -1)
 
                 (when 
                     (not (exists (?c1 - crate) (and (not (= ?c ?c1)) (not (is_delivered ?c1)) (= (group ?c1) (current_group)))))
