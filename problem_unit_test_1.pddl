@@ -28,6 +28,6 @@
     )
 
     (:metric 
-        minimize (total-time)
+        minimize (ciao_amico)
     )
 )

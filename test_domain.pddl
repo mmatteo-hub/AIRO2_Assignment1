@@ -39,6 +39,9 @@
     (:functions
         ; Each ?c has a certain weight
         (weight ?c - crate)
+        ; Each ?c has a group it belong to
+        (group ?c - crate)
+
         ; Each ?r can lift only an amount of weight
         (lift_capability ?r - robot)
 
@@ -54,6 +57,9 @@
 
         ; The time that ?l has currently passed loading a crate
         (loading_time ?l - loader)
+
+        ; The group that is currently being loaded on the Conveyour Belt
+        (current_group)
     )
 
     (:action set_destination
@@ -154,7 +160,10 @@
         :precondition 
             (and 
                 ; loader is always at destination
-                (or (is_loader ?r) (= (destination ?r) (position ?r)))
+                (or 
+                    (and (is_loader ?r) (= (group ?c) (current_group)))
+                    (and (is_mover ?r) (= (destination ?r) (position ?r)))
+                )
                 ; ?r and ?c must be at the same spot
                 (= (position ?c) (position ?r))
                 ; ?r must not be currently be grabbing anything else
@@ -320,6 +329,11 @@
                 (not (is_grabbing ?l ?c))
                 ; ?c is considered as delivered
                 (is_delivered ?c)
+
+                (when 
+                    (not (exists (?c1 - crate) (and (not (= ?c ?c1)) (not (is_delivered ?c1)) (= (group ?c1) (current_group)))))
+                    (increase (current_group) 1)
+                )
             )
     )
 )

@@ -4,7 +4,7 @@
     (:objects 
         m1 m2 - mover
         l - loader
-        c1 c2 - crate
+        c1 c2 c3 c4 - crate
     )
 
     (:init
@@ -20,7 +20,9 @@
 
         ; determining the distance from the loading bay and the weight of each crate
         (= (distance_from_lb c1) 40) (= (weight c1) 25)
-        (= (distance_from_lb c2) 45) (= (weight c2) 40)
+        (= (distance_from_lb c2) 95) (= (weight c2) 40)
+        (= (distance_from_lb c3) 25) (= (weight c3) 30)
+        (= (distance_from_lb c4) 90) (= (weight c4) 10)
 
         ; initialization of the loader. Distance and lift capability
         (= (distance_from_lb l) 0)(= (lift_capability l) 100)
@@ -32,6 +34,8 @@
             ; both crate are delivered
             (is_delivered c1)
             (is_delivered c2)
+            (is_delivered c3)
+            (is_delivered c4)
         )
     )
 
