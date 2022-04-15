@@ -59,7 +59,7 @@
         (loading_time ?l - loader)
 
         ; The group that is currently being loaded on the Conveyour Belt
-        (current_group)
+        (delivering_group)
     )
 
     (:action set_destination
@@ -158,10 +158,9 @@
             (?r - robot ?c - crate)
 
         :precondition 
-            (and 
-                ; loader is always at destination
+            (and
                 (or 
-                    (and (is_loader ?r) (= (group ?c) (current_group)))
+                    (and (is_loader ?r) (or (= (delivering_group) -1) (= (group ?c) (delivering_group))))
                     (and (is_mover ?r) (= (destination ?r) (position ?r)))
                 )
                 ; ?r and ?c must be at the same spot
@@ -181,7 +180,7 @@
                 ; ?r is now grabbing ?c
                 (is_grabbing ?r ?c)
                 ; Assign the correct parameter to the robot ?r
-                (when (is_loader ?r) (assign (loading_time ?r) 4))
+                (when (is_loader ?r) (and (assign (delivering_group) -1) (assign (loading_time ?r) 4)))
                 (when (is_mover ?r) (assign (velocity ?r) (/ 100 (weight ?c))))
             )
     )
@@ -325,9 +324,12 @@
                 ; ?c is considered as delivered and the position is not valid anymore
                 (is_delivered ?c) (assign (position ?c) -1)
 
-                (when 
-                    (not (exists (?c1 - crate) (and (not (= ?c ?c1)) (not (is_delivered ?c1)) (= (group ?c1) (current_group)))))
-                    (increase (current_group) 1)
+                (when
+                    (and 
+                        (> (group ?c) 0)
+                        (exists (?c1 - crate) (and (not (= ?c ?c1)) (not (is_delivered ?c1)) (= (group ?c)(group ?c1)) ))
+                    )
+                    (assign (delivering_group) (group ?c))
                 )
             )
     )
