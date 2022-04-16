@@ -21,10 +21,10 @@
         (= (lift_capability l1) 100)
         (= (loading_time l1) -1)
 
-        (= (position c1) 40) (= (weight c1) 30) (= (group c1) -1)
-        (= (position c2) 30) (= (weight c2) 45) (= (group c2) 0)
+        (= (position c1) 10) (= (weight c1) 30) (= (group c1) -1)
+        (= (position c2) 5) (= (weight c2) 45) (= (group c2) 0)
         (= (position c3) 10) (= (weight c3) 90) (= (group c3) 1)
-        (= (position c4) 20) (= (weight c4) 10) (= (group c4) 1)
+        (= (position c4) 10) (= (weight c4) 10) (= (group c4) 1)
         (= (position c5) 15) (= (weight c5) 40) (= (group c5) 1)
     )
 

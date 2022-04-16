@@ -11,6 +11,8 @@
         :negative-preconditions
         ; Allows the usage of or in preconditions
         :disjunctive-preconditions
+        ; Allows the usage of foreach and exists in preconditions
+        :universal-preconditions
         ; Allows the usage of = to compare objects
         :equality
         ; Allows the usage of when in action effects
@@ -42,22 +44,55 @@
         (weight ?c - crate)
         ; Each ?c has a group it belongs to (-1 if not)
         (group ?c - crate)
-        ; The group that is currently being loaded on the Conveyour Belt
+        ; The group that is currently being delivered
         (last_crate_group)
         
         ; How much weight ?r is able to pick up
         (lift_capability ?r - robot)
         ; The time ?m is occupied performing some action
         (occupied_time ?r - robot)
+
+        ; The remaining amount of battery ?m has
+        (battery ?m - mover)
     )
     
-    (:process EXECUTE_ACTION
+    (:process EXECUTE_LOAD_LOADER
         :parameters 
-            (?r - robot)
+            (?l - loader)
         :precondition 
-            (> (occupied_time ?r) 0)
-        :effect 
-            (decrease (occupied_time ?r) (* #t 1))
+            (> (occupied_time ?l) 0)
+        :effect
+            (decrease (occupied_time ?l) (* #t 1))
+    )
+
+    (:process EXECUTE_MOVE_MOVER
+        :parameters 
+            (?m - mover ?c - crate)
+        :precondition 
+            (and
+                (> (occupied_time ?m) 0)
+                (is_retrieving ?m ?c)
+            )
+        :effect
+            (and
+                (decrease (occupied_time ?m) (* #t 1))
+                (decrease (battery ?m) (* #t 1))
+            )
+    )
+
+    (:process EXECUTE_RECHARGE_MOVER
+        :parameters 
+            (?m - mover)
+        :precondition 
+            (and
+                (> (occupied_time ?m) 0)
+                (forall (?c - crate) (not (is_retrieving ?m ?c)))
+            )
+        :effect
+            (and
+                (decrease (occupied_time ?m) (* #t 1))
+                (increase (battery ?m) (* #t 1))
+            )
     )
 
     (:action retrieve
@@ -66,14 +101,16 @@
         :precondition   
             (and 
                 ; ?c must have a valid position
-                ; NB. Prevents considering delivered crates
+                ; NB. Prevents considering delivered or grabbed crates
                 (> (position ?c) 0)
-                ; ?m must not be performing a task
+                ; ?m must not be performing another task when occupied
                 (= (occupied_time ?m) 0)
                 ; ?m must be able to pick ?c up
                 (> (lift_capability ?m) (weight ?c))
                 ; ?m is not able to pick ?c if fragile
                 (not (is_fragile ?c))
+
+                (> (battery ?m) (+ (/ (position ?c) 10) (/ (* (position ?c) (weight ?c)) 100)))
             )
         :effect 
             (and 
@@ -100,6 +137,9 @@
                 (= (occupied_time ?m2) 0)
                 ; ?m1 and ?m2 must be able to pick ?c up
                 (> (+ (lift_capability ?m1) (lift_capability ?m2)) (weight ?c))
+
+                (> (battery ?m1) (+ (/ (position ?c) 10) (/ (* (position ?c) (weight ?c)) 150)))
+                (> (battery ?m2) (+ (/ (position ?c) 10) (/ (* (position ?c) (weight ?c)) 150)))
             )
         :effect 
             (and 
@@ -131,6 +171,22 @@
                 (assign (occupied_time ?m) 0)
                 ; ?c is now at loading bay
                 (assign (position ?c) 0)
+            )
+    )
+
+    (:action recharge
+        :parameters 
+            (?m - mover)
+        :precondition 
+            (and 
+                ; ?m must not be performing another task when occupied
+                (= (occupied_time ?m) 0)
+                ; ?m battery must not be already at max
+                (< (battery ?m) 20)
+            )
+        :effect 
+            (and
+                (assign (occupied_time ?m) 1)
             )
     )
 
