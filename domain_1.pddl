@@ -40,6 +40,10 @@
         (position ?c - crate)
         ; Each ?c has a certain weight
         (weight ?c - crate)
+        ; Each ?c has a group it belongs to (-1 if not)
+        (group ?c - crate)
+        ; The group that is currently being loaded on the Conveyour Belt
+        (last_crate_group)
         
         ; How much weight ?r is able to pick up
         (lift_capability ?r - robot)
@@ -134,7 +138,15 @@
         :parameters
             (?l - loader ?c - crate)
         :precondition 
-            (and 
+            (and
+                (or 
+                    ; Not currently loading a group
+                    (= (last_crate_group) -1) 
+                    ; ?c belongs to the group that is currenlty being loaded
+                    (= (group ?c) (last_crate_group))
+                    ; All the crates belonging to the current group have been delivered
+                    (forall (?c1 - crate) (or (= ?c ?c1) (is_delivered ?c1) (not (= (group ?c1) (last_crate_group)))))
+                )
                 ; ?r and ?c must be at the same spot
                 ; NB. No check for delivered because position is valid
                 ; NB. No check for others grabbing because position is valid
@@ -171,6 +183,8 @@
                 (not (is_loading ?l ?c))
                 ; ?c is now delivered
                 (is_delivered ?c)
+                ; Storing the group of the last delivered crate
+                (assign (last_crate_group) (group ?c))
             )
     )
 )
