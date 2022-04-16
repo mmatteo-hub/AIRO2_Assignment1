@@ -26,8 +26,4 @@
             (= (distance_from_lb c1) 0)
         )
     )
-
-    (:metric 
-        minimize (ciao_amico)
-    )
 )

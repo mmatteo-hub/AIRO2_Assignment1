@@ -29,6 +29,8 @@
         (is_grabbing ?r - robot ?c - crate)
         ; True iff ?c has been loaded on the Conveyor Belt
         (is_delivered ?c - crate)
+        ; True iff ?c is considered to be fragile
+        (is_fragile ?c - crate)
     )
 
     (:functions
@@ -89,6 +91,8 @@
                 ; NB. No check for delivered because position is valid
                 ; NB. No check for others grabbing because position is valid
                 (= (position ?c) (position ?m))
+                ; A single ?m cannot move a fragile crate
+                (not (is_fragile ?c))
                 ; ?m must not be currently be grabbing anything else
                 (forall (?c1 - crate) (not (is_grabbing ?m ?c1)))
                 ; ?m must be able to pick ?c
@@ -212,7 +216,7 @@
                 (or 
                     (= (last_crate_group) -1) 
                     (= (group ?c) (last_crate_group))
-                    (forall (?c1 - crate) (or (= ?c ?c1) (is_delivered ?c1) (not (= (group ?c)(group ?c1)))))
+                    (forall (?c1 - crate) (or (= ?c ?c1) (is_delivered ?c1) (not (= (group ?c) (last_crate_group)))))
                 )
                 ; ?r and ?c must be at the same spot
                 ; NB. No check for delivered because position is valid
@@ -232,7 +236,9 @@
                 (is_grabbing ?l ?c)
                 ; Assign the correct parameter to the robot ?r
                 (assign (last_crate_group) -1)
-                (assign (loading_time ?l) 4)
+                ; Loading time is based on ?c features
+                (when (not (is_fragile ?c)) (assign (loading_time ?l) 4))
+                (when (is_fragile ?c) (assign (loading_time ?l) 6))
             )
     )
 

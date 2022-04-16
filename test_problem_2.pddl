@@ -2,8 +2,8 @@
     (:domain warehouse1)
     (:objects 
         m1 m2 - mover
-        l1 - loader
-        c1 c2 c3 c4 c5 - crate
+        l1 l2 - loader
+        c1 c2 c3 c4 - crate
     )
 
     (:init
@@ -21,11 +21,14 @@
         (= (lift_capability l1) 100)
         (= (loading_time l1) -1)
 
-        (= (position c1) 40) (= (weight c1) 30) (= (group c1) -1)
-        (= (position c2) 30) (= (weight c2) 45) (= (group c2) 0)
-        (= (position c3) 10) (= (weight c3) 90) (= (group c3) 1)
-        (= (position c4) 20) (= (weight c4) 10) (= (group c4) 1)
-        (= (position c5) 15) (= (weight c5) 40) (= (group c5) 1)
+        (= (position l2) 0)
+        (= (lift_capability l2) 50)
+        (= (loading_time l2) -1)
+
+        (= (weight c1) 70) (= (position c1) 20) (= (group c1) 1)
+        (= (weight c2) 80) (= (position c2) 20) (= (group c2) 1) (is_fragile c2)
+        (= (weight c3) 60) (= (position c3) 30) (= (group c3) 1)
+        (= (weight c4) 30) (= (position c4) 10) (= (group c4) 1)
     )
 
     (:goal 
@@ -34,7 +37,6 @@
             (is_delivered c2)
             (is_delivered c3)
             (is_delivered c4)
-            (is_delivered c5)
         )
     )
 
