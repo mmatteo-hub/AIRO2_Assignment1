@@ -1,0 +1,4 @@
+EXECUTED WITH:
+java -jar ./ENHSP/enhsp.jar -o ./assignment_domain.pddl -f ./problem_4.pddl -anytime -pe
+
+PLANNER OUTPUT:
