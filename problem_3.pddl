@@ -25,9 +25,9 @@
         (= (lift_capability l2) 50)
         (= (loading_time l2) -1)
 
-        (= (weight c1) 70) (= (position c1) 20) (= (group c1) 1)
-        (= (weight c2) 80) (= (position c2) 20) (= (group c2) 1) (is_fragile c2)
-        (= (weight c3) 60) (= (position c3) 30) (= (group c3) 1)
+        (= (weight c1) 70) (= (position c1) 20) (= (group c1) 0)
+        (= (weight c2) 80) (= (position c2) 20) (= (group c2) 0) (is_fragile c2)
+        (= (weight c3) 60) (= (position c3) 30) (= (group c3) 0)
         (= (weight c4) 30) (= (position c4) 10) (= (group c4) -1)
     )
 
