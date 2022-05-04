@@ -7,24 +7,26 @@
     )
 
     (:init
-        (= (last_crate_group) -1)
-
-        (= (position m1) 0) (= (destination m1) 0)
+        ; Init mover m1
+        (= (occupied_time m1) 0)
+        (= (battery m1) 20)
         (= (lift_capability m1) 50)
-        (= (velocity m1) 10) (= (velocity_dir m1) 0)
 
-        (= (position m2) 0) (= (destination m2) 0)
+        ; Init mover m2
+        (= (occupied_time m2) 0)
+        (= (battery m2) 20)
         (= (lift_capability m2) 50)
-        (= (velocity m2) 10) (= (velocity_dir m2) 0)
 
-        (= (position l1) 0)
-        (= (lift_capability l1) 100)
-        (= (loading_time l1) -1)
+        ; Init loader l1
+        (= (occupied_time l1) 0)
+        (= (lift_capability l1) 200)
 
-        (= (position l2) 0)
+        ; Init loader l2
+        (= (occupied_time l2) 0)
         (= (lift_capability l2) 50)
-        (= (loading_time l2) -1)
 
+        ; Init world
+        (= (last_crate_group) -1)
         (= (weight c1) 70) (= (position c1) 10) (= (group c1) 0)
         (= (weight c2) 80) (= (position c2) 20) (= (group c2) 0) (is_fragile c2)
         (= (weight c3) 20) (= (position c3) 20) (= (group c3) 1)
