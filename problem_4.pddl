@@ -27,11 +27,11 @@
 
         ; Init world
         (= (last_crate_group) -1)
-        (= (weight c1) 30) (= (position c1) 20) (= (group c1) 1)
-        (= (weight c2) 20) (= (position c2) 20) (= (group c2) 1) (is_fragile c2)
-        (= (weight c3) 30) (= (position c3) 10) (= (group c3) 2) (is_fragile c3)
-        (= (weight c4) 20) (= (position c4) 20) (= (group c4) 2) (is_fragile c4)
-        (= (weight c5) 30) (= (position c5) 30) (= (group c5) 2) (is_fragile c5)
+        (= (weight c1) 30) (= (position c1) 20) (= (group c1) 0)
+        (= (weight c2) 20) (= (position c2) 20) (= (group c2) 0) (is_fragile c2)
+        (= (weight c3) 30) (= (position c3) 10) (= (group c3) 1) (is_fragile c3)
+        (= (weight c4) 20) (= (position c4) 20) (= (group c4) 1) (is_fragile c4)
+        (= (weight c5) 30) (= (position c5) 30) (= (group c5) 1) (is_fragile c5)
         (= (weight c6) 20) (= (position c6) 10) (= (group c6) -1)
     )
 
