@@ -3,7 +3,7 @@
     (:objects 
         m1 - mover
         l1 - loader
-        c1 c2 c3 - crate
+        c1 c2 - crate
     )
 
     (:init
@@ -16,16 +16,14 @@
         (= (occupied_time l1) 0)
         (= (lift_capability l1) 200)
 
-        (= (position c1) 20) (= (weight c1) 30) (= (group c1) 1)
-        (= (position c2) 20) (= (weight c2) 30) (= (group c2) 1)
-        (= (position c3) 20) (= (weight c3) 30) (= (group c3) 1)
+        (= (position c1) 40) (= (weight c1) 30) (= (group c1) 1)
+        (= (position c2) 40) (= (weight c2) 30) (= (group c2) 1)
     )
 
     (:goal 
         (and
             (is_delivered c1)
             (is_delivered c2)
-            (is_delivered c3)
         )
     )
 

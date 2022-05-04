@@ -1,4 +1,4 @@
-(define (domain warehouse_movers)
+(define (domain warehouse)
 
     (:requirements
         ; Allows the usage of basic actions
@@ -29,12 +29,17 @@
     (:predicates
         ; True iff ?c is considered fragile
         (is_fragile ?c - crate)
-        ; True iff ?m is retrieving ?c
-        (is_retrieving ?m - mover ?c - crate)
-        ; True iff ?l is loading ?c
-        (is_loading ?l - loader ?c - crate)
         ; True iff ?c has been delivered
         (is_delivered ?c - crate)
+
+        ; True iff ?r is occupied and cannot perform a task
+        (is_occupied ?r - robot)
+        ; True iff ?m is retrieving ?c
+        (is_retrieving ?m - mover ?c - crate)
+        ; True iff ?m is charging
+        (is_charging ?m)
+        ; True iff ?l is loading ?c
+        (is_loading ?l - loader ?c - crate)
     )
 
     (:functions
@@ -55,14 +60,65 @@
         ; The remaining amount of battery ?m has
         (battery ?m - mover)
     )
-    
-    (:process EXECUTE_LOAD_LOADER
+
+    (:action retrieve
         :parameters 
-            (?l - loader)
+            (?m - mover ?c - crate)
+        :precondition   
+            (and 
+                ; ?c must have a valid position
+                ; NB. Prevents considering delivered or grabbed crates
+                (> (position ?c) 0)
+                ; ?m must not be performing another task when occupied
+                (not (is_occupied ?m))
+                ; ?m must be able to pick ?c up
+                (> (lift_capability ?m) (weight ?c))
+                ; ?m is not able to pick ?c if fragile
+                (not (is_fragile ?c))
+                ; ?m battery must be enough
+                (> (battery ?m) (+ (/ (position ?c) 10) (/ (* (position ?c) (weight ?c)) 100)))
+            )
+        :effect 
+            (and 
+                ; ?m is now retrieving ?c
+                (is_retrieving ?m ?c) 
+                (assign (position ?c) -1)
+                ; ?m is occupied until it retrieves ?c
+                (assign (occupied_time ?m) (+ (/ (position ?c) 10) (/ (* (position ?c) (weight ?c)) 100)))
+                (is_occupied ?m)
+            )
+    )
+
+    (:action retrieve2
+        :parameters 
+            (?m1 - mover ?m2 - mover ?c - crate)
         :precondition 
-            (> (occupied_time ?l) 0)
-        :effect
-            (decrease (occupied_time ?l) (* #t 1))
+            (and
+                ; ?m1 and ?m2 must not be the same
+                (not (= ?m1 ?m2))
+                ; ?c must have a valid position
+                ; NB. Prevents considering delivered crates
+                (> (position ?c) 0)
+                ; ?m1 and ?m2 must not be performing a task
+                (not (is_occupied ?m1))
+                (not (is_occupied ?m2))
+                ; ?m1 and ?m2 must be able to pick ?c up
+                (> (+ (lift_capability ?m1) (lift_capability ?m2)) (weight ?c))
+                ; ?m1 and ?m2 battery must be sufficient
+                (> (battery ?m1) (+ (/ (position ?c) 10) (/ (* (position ?c) (weight ?c)) 150)))
+                (> (battery ?m2) (+ (/ (position ?c) 10) (/ (* (position ?c) (weight ?c)) 150)))
+            )
+        :effect 
+            (and 
+                ; ?m1 and ?m2 are retrieving ?c
+                (is_retrieving ?m1 ?c) 
+                (is_retrieving ?m2 ?c)
+                ; ?m1 and ?m2 are now occupied until they retrieve ?c
+                (assign (occupied_time ?m1) (+ (/ (position ?c) 10) (/ (* (position ?c) (weight ?c)) 150)))
+                (assign (occupied_time ?m2) (+ (/ (position ?c) 10) (/ (* (position ?c) (weight ?c)) 150)))
+                (is_occupied ?m1)
+                (is_occupied ?m2)
+            )
     )
 
     (:process EXECUTE_MOVE_MOVER
@@ -80,95 +136,25 @@
             )
     )
 
-    (:process EXECUTE_RECHARGE_MOVER
-        :parameters 
-            (?m - mover)
-        :precondition 
-            (and
-                (> (occupied_time ?m) 0)
-                (forall (?c - crate) (not (is_retrieving ?m ?c)))
-            )
-        :effect
-            (and
-                (decrease (occupied_time ?m) (* #t 1))
-                (increase (battery ?m) (* #t 1))
-            )
-    )
-
-    (:action retrieve
-        :parameters 
-            (?m - mover ?c - crate)
-        :precondition   
-            (and 
-                ; ?c must have a valid position
-                ; NB. Prevents considering delivered or grabbed crates
-                (> (position ?c) 0)
-                ; ?m must not be performing another task when occupied
-                (= (occupied_time ?m) 0)
-                ; ?m must be able to pick ?c up
-                (> (lift_capability ?m) (weight ?c))
-                ; ?m is not able to pick ?c if fragile
-                (not (is_fragile ?c))
-
-                (> (battery ?m) (+ (/ (position ?c) 10) (/ (* (position ?c) (weight ?c)) 100)))
-            )
-        :effect 
-            (and 
-                ; ?m is now retrieving ?c
-                (is_retrieving ?m ?c) 
-                (assign (position ?c) -1)
-                ; ?m is occupied until it retrieves ?c
-                (assign (occupied_time ?m) (+ (/ (position ?c) 10) (/ (* (position ?c) (weight ?c)) 100)))
-            )
-    )
-
-    (:action retrieve2
-        :parameters 
-            (?m1 - mover ?m2 - mover ?c - crate)
-        :precondition 
-            (and
-                ; ?m1 and ?m2 must not be the same
-                (not (= ?m1 ?m2))
-                ; ?c must have a valid position
-                ; NB. Prevents considering delivered crates
-                (> (position ?c) 0)
-                ; ?m1 and ?m2 must not be performing a task
-                (= (occupied_time ?m1) 0) 
-                (= (occupied_time ?m2) 0)
-                ; ?m1 and ?m2 must be able to pick ?c up
-                (> (+ (lift_capability ?m1) (lift_capability ?m2)) (weight ?c))
-
-                (> (battery ?m1) (+ (/ (position ?c) 10) (/ (* (position ?c) (weight ?c)) 150)))
-                (> (battery ?m2) (+ (/ (position ?c) 10) (/ (* (position ?c) (weight ?c)) 150)))
-            )
-        :effect 
-            (and 
-                ; ?m1 and ?m2 are retrieving ?c
-                (is_retrieving ?m1 ?c) 
-                (is_retrieving ?m2 ?c)
-                ; ?m1 and ?m2 are now occupied until they retrieve ?c
-                (assign (occupied_time ?m1) (+ (/ (position ?c) 10) (/ (* (position ?c) (weight ?c)) 150)))
-                (assign (occupied_time ?m2) (+ (/ (position ?c) 10) (/ (* (position ?c) (weight ?c)) 150)))
-            )
-    )
-
     (:event ON_CRATE_RETRIEVED
         :parameters 
             (?m - mover ?c - crate)
         :precondition 
             (and
-                ; ?m must not be occupied anymore
+                ; ?m must have finished occupied time
                 (<= (occupied_time ?m) 0)
+                (is_occupied ?m)
                 ; ?m must be retrieving ?c
                 (is_retrieving ?m ?c)
-                ; Each ?l must not be operating
+                ; every ?l must not be operating
                 (forall (?l - loader) (= (occupied_time ?l) 0))
             )
         :effect 
             (and
                 ; ?m is not retrieving ?c anymore
-                (not (is_retrieving ?m ?c))
                 (assign (occupied_time ?m) 0)
+                (not (is_occupied ?m))
+                (not (is_retrieving ?m ?c))
                 ; ?c is now at loading bay
                 (assign (position ?c) 0)
             )
@@ -180,17 +166,56 @@
         :precondition 
             (and 
                 ; ?m must not be performing another task when occupied
-                (= (occupied_time ?m) 0)
+                (not (is_occupied ?m))
                 ; ?m battery must not be already at max
                 (< (battery ?m) 20)
             )
         :effect 
             (and
+                ; ?m is now occupied charging
+                (is_charging ?m)
+                ; ?m takes some time to charge
                 (assign (occupied_time ?m) 1)
+                (is_occupied ?m)
             )
     )
 
-    (:event LOAD
+    (:process EXECUTE_RECHARGE_MOVER
+        :parameters 
+            (?m - mover)
+        :precondition 
+            (and
+                (> (occupied_time ?m) 0)
+                (is_charging ?m)
+            )
+        :effect
+            (and
+                (decrease (occupied_time ?m) (* #t 1))
+                (increase (battery ?m) (* #t 1))
+            )
+    )
+
+    (:event ON_RECHARGED
+        :parameters 
+            (?m - mover)
+        :precondition 
+            (and
+                ; ?m must have finished occupied time
+                (<= (occupied_time ?m) 0)
+                (is_occupied ?m)
+                ; ?m must be charging
+                (is_charging ?m)
+            )
+        :effect 
+            (and
+                ; ?m is not occupied charging anymore
+                (assign (occupied_time ?m) 0)
+                (not (is_occupied ?m))
+                (not (is_charging ?m))
+            )
+    )
+    
+    (:action load
         :parameters
             (?l - loader ?c - crate)
         :precondition 
@@ -208,7 +233,7 @@
                 ; NB. No check for others grabbing because position is valid
                 (= (position ?c) 0)
                 ; ?l must not already performing a task
-                (= (occupied_time ?l) 0)
+                (not (is_occupied ?l))
                 ; ?l must be able to pick ?c up
                 (> (lift_capability ?l) (weight ?c))
             )
@@ -219,7 +244,17 @@
                 ; Loading time is based on ?c features
                 (when (not (is_fragile ?c)) (assign (occupied_time ?l) 4))
                 (when (is_fragile ?c) (assign (occupied_time ?l) 6))
+                (is_occupied ?l)
             )
+    )
+
+    (:process EXECUTE_LOAD_LOADER
+        :parameters 
+            (?l - loader)
+        :precondition 
+            (> (occupied_time ?l) 0)
+        :effect
+            (decrease (occupied_time ?l) (* #t 1))
     )
 
     (:event ON_CRATE_LOADED
@@ -227,8 +262,9 @@
             (?l - loader ?c - crate)
         :precondition 
             (and
-                ; ?m must not be occupied anymore
+                ; time of ?l must have passed
                 (<= (occupied_time ?l) 0)
+                (is_occupied ?l)
                 ; ?m must be retrieving ?c
                 (is_loading ?l ?c)
             )
@@ -236,6 +272,7 @@
             (and
                 ; ?l has now loaded ?c onto the conveyour belt
                 (assign (occupied_time ?l) 0)
+                (not (is_occupied ?l))
                 (not (is_loading ?l ?c))
                 ; ?c is now delivered
                 (is_delivered ?c)
