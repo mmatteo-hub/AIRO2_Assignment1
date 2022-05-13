@@ -1,0 +1,119 @@
+Domain parsed
+Problem parsed
+Grounding..
+Grounding Time: 22
+(Pre Simplification) - |A|+|P|+|E|: 49
+(After Easy Simplification) - |A|+|P|+|E|: 35
+|F|:19
+|X|:7
+line 21:13 mismatched character '\r' expecting 'd'
+Grounding and Simplification finished
+|A|:14
+|P|:9
+|E|:12
+Delta time heuristic model:1.0
+Delta time planning model:1.0
+Delta time search-execution model:1.0
+Delta time validation model:1
+ha:false htfalse
+Setting horizon to:NaN
+Helpful Action Pruning Activated
+Running WA-STAR
+h(n = s_0)=1.0
+f(n) = 1.0 (Expanded Nodes: 0, Evaluated States: 0, Time: 0.002)
+f(n) = 2.0 (Expanded Nodes: 1, Evaluated States: 6, Time: 0.008)
+f(n) = 3.0 (Expanded Nodes: 7, Evaluated States: 12, Time: 0.009)
+f(n) = 4.0 (Expanded Nodes: 13, Evaluated States: 18, Time: 0.009)
+f(n) = 5.0 (Expanded Nodes: 19, Evaluated States: 24, Time: 0.01)
+f(n) = 6.0 (Expanded Nodes: 25, Evaluated States: 28, Time: 0.01)
+f(n) = 7.0 (Expanded Nodes: 29, Evaluated States: 35, Time: 0.011)
+f(n) = 8.0 (Expanded Nodes: 36, Evaluated States: 45, Time: 0.012)
+f(n) = 9.0 (Expanded Nodes: 46, Evaluated States: 61, Time: 0.013)
+f(n) = 10.0 (Expanded Nodes: 62, Evaluated States: 83, Time: 0.014)
+f(n) = 11.0 (Expanded Nodes: 84, Evaluated States: 111, Time: 0.015)
+f(n) = 12.0 (Expanded Nodes: 112, Evaluated States: 144, Time: 0.017)
+f(n) = 13.0 (Expanded Nodes: 145, Evaluated States: 165, Time: 0.019)
+f(n) = 14.0 (Expanded Nodes: 166, Evaluated States: 186, Time: 0.02)
+f(n) = 15.0 (Expanded Nodes: 187, Evaluated States: 212, Time: 0.021)
+f(n) = 16.0 (Expanded Nodes: 213, Evaluated States: 248, Time: 0.023)
+f(n) = 17.0 (Expanded Nodes: 249, Evaluated States: 299, Time: 0.025)
+f(n) = 18.0 (Expanded Nodes: 300, Evaluated States: 375, Time: 0.027)
+f(n) = 19.0 (Expanded Nodes: 376, Evaluated States: 473, Time: 0.029)
+f(n) = 20.0 (Expanded Nodes: 474, Evaluated States: 594, Time: 0.032)
+f(n) = 21.0 (Expanded Nodes: 595, Evaluated States: 707, Time: 0.035)
+f(n) = 22.0 (Expanded Nodes: 708, Evaluated States: 815, Time: 0.037)
+f(n) = 23.0 (Expanded Nodes: 816, Evaluated States: 957, Time: 0.039)
+f(n) = 24.0 (Expanded Nodes: 958, Evaluated States: 1105, Time: 0.041)
+f(n) = 25.0 (Expanded Nodes: 1106, Evaluated States: 1274, Time: 0.043)
+f(n) = 26.0 (Expanded Nodes: 1275, Evaluated States: 1451, Time: 0.046)
+f(n) = 27.0 (Expanded Nodes: 1452, Evaluated States: 1631, Time: 0.051)
+f(n) = 28.0 (Expanded Nodes: 1632, Evaluated States: 1797, Time: 0.053)
+f(n) = 29.0 (Expanded Nodes: 1798, Evaluated States: 1963, Time: 0.055)
+f(n) = 30.0 (Expanded Nodes: 1964, Evaluated States: 2130, Time: 0.056)
+f(n) = 31.0 (Expanded Nodes: 2131, Evaluated States: 2323, Time: 0.058)
+f(n) = 32.0 (Expanded Nodes: 2324, Evaluated States: 2561, Time: 0.06)
+f(n) = 33.0 (Expanded Nodes: 2562, Evaluated States: 2859, Time: 0.063)
+f(n) = 34.0 (Expanded Nodes: 2860, Evaluated States: 3190, Time: 0.066)
+f(n) = 35.0 (Expanded Nodes: 3191, Evaluated States: 3541, Time: 0.069)
+f(n) = 36.0 (Expanded Nodes: 3542, Evaluated States: 3864, Time: 0.072)
+f(n) = 37.0 (Expanded Nodes: 3865, Evaluated States: 4147, Time: 0.075)
+f(n) = 38.0 (Expanded Nodes: 4148, Evaluated States: 4382, Time: 0.077)
+f(n) = 39.0 (Expanded Nodes: 4383, Evaluated States: 4610, Time: 0.079)
+f(n) = 40.0 (Expanded Nodes: 4611, Evaluated States: 4866, Time: 0.082)
+f(n) = 41.0 (Expanded Nodes: 4867, Evaluated States: 5141, Time: 0.084)
+f(n) = 42.0 (Expanded Nodes: 5142, Evaluated States: 5401, Time: 0.087)
+f(n) = 43.0 (Expanded Nodes: 5402, Evaluated States: 5642, Time: 0.089)
+f(n) = 44.0 (Expanded Nodes: 5643, Evaluated States: 5872, Time: 0.091)
+f(n) = 45.0 (Expanded Nodes: 5873, Evaluated States: 6094, Time: 0.094)
+f(n) = 46.0 (Expanded Nodes: 6095, Evaluated States: 6313, Time: 0.098)
+f(n) = 47.0 (Expanded Nodes: 6314, Evaluated States: 6559, Time: 0.102)
+f(n) = 48.0 (Expanded Nodes: 6560, Evaluated States: 6868, Time: 0.104)
+f(n) = 49.0 (Expanded Nodes: 6869, Evaluated States: 7241, Time: 0.106)
+f(n) = 50.0 (Expanded Nodes: 7242, Evaluated States: 7606, Time: 0.109)
+f(n) = 51.0 (Expanded Nodes: 7607, Evaluated States: 7839, Time: 0.112)
+f(n) = 52.0 (Expanded Nodes: 7840, Evaluated States: 7937, Time: 0.115)
+f(n) = 53.0 (Expanded Nodes: 7938, Evaluated States: 7969, Time: 0.115)
+f(n) = 54.0 (Expanded Nodes: 7970, Evaluated States: 7997, Time: 0.116)
+f(n) = 55.0 (Expanded Nodes: 7998, Evaluated States: 8013, Time: 0.116)
+f(n) = 56.0 (Expanded Nodes: 8014, Evaluated States: 8017, Time: 0.116)
+Extracting plan with execution delta: 1.0
+Problem Solved
+0: (retrieve2 m1 m2 c3)
+0.0: -----waiting---- [15.0]
+15.0: (ON_CRATE_RETRIEVED m2 c3)
+15.0: (ON_CRATE_RETRIEVED m1 c3)
+15.0: (retrieve2 m1 m2 c4)
+15.0: -----waiting---- [19.0]
+19.0: (ON_CRATE_RETRIEVED m2 c4)
+19.0: (ON_CRATE_RETRIEVED m1 c4)
+19.0: (retrieve2 m2 m1 c1)
+19.0: -----waiting---- [31.0]
+31.0: (ON_CRATE_RETRIEVED m2 c1)
+31.0: (ON_CRATE_RETRIEVED m1 c1)
+31.0: (retrieve2 m1 m2 c2)
+31.0: -----waiting---- [32.0]
+32.0: (load l1 c3)
+32.0: -----waiting---- [36.0]
+36.0: (ON_CRATE_LOADED l1 c3)
+36.0: (load l1 c1)
+36.0: -----waiting---- [40.0]
+40.0: (ON_CRATE_LOADED l1 c1)
+40.0: (load l1 c4)
+40.0: -----waiting---- [44.0]
+44.0: (ON_CRATE_RETRIEVED m2 c2)
+44.0: (ON_CRATE_RETRIEVED m1 c2)
+44.0: (ON_CRATE_LOADED l1 c4)
+44.0: (load l1 c2)
+44.0: -----waiting---- [48.0]
+48.0: (ON_CRATE_LOADED l1 c2)
+Plan-Length:68
+Elapsed Time: 48.0
+Metric (Search):56.0
+Planning Time:287
+Heuristic Time:0
+Search Time:116
+Expanded Nodes:8016
+States Evaluated:8018
+Fixed constraint violations during search (zero-crossing):0
+Number of Dead-Ends detected:0
+Number of Duplicates detected:2779

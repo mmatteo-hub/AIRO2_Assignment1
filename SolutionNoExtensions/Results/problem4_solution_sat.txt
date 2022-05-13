@@ -1,0 +1,752 @@
+Domain parsed
+Problem parsed
+Grounding..
+Grounding Time: 27
+(Pre Simplification) - |A|+|P|+|E|: 73
+AIBR :: Number of Supporters = 187
+(After Easy Simplification) - |A|+|P|+|E|: 61
+|F|:27
+|X|:9
+line 21:13 mismatched character '\r' expecting 'd'
+Grounding and Simplification finished
+|A|:30
+|P|:13
+|E|:18
+Delta time heuristic model:1.0
+Delta time planning model:1.0
+Delta time search-execution model:1.0
+Delta time validation model:1
+ha:false htfalse
+AIBR selected
+Setting horizon to:NaN
+Helpful Action Pruning Activated
+Running WA-STAR
+h(n = s_0)=61.0
+f(n) = 61.0 (Expanded Nodes: 0, Evaluated States: 0, Time: 0.004)
+f(n) = 76.0 (Expanded Nodes: 1, Evaluated States: 18, Time: 0.037)
+f(n) = 77.0 (Expanded Nodes: 6, Evaluated States: 38, Time: 0.06)
+f(n) = 82.0 (Expanded Nodes: 10, Evaluated States: 57, Time: 0.08)
+f(n) = 85.0 (Expanded Nodes: 22, Evaluated States: 99, Time: 0.115)
+f(n) = 88.0 (Expanded Nodes: 30, Evaluated States: 122, Time: 0.124)
+f(n) = 89.0 (Expanded Nodes: 36, Evaluated States: 141, Time: 0.132)
+f(n) = 90.0 (Expanded Nodes: 62, Evaluated States: 192, Time: 0.156)
+f(n) = 91.0 (Expanded Nodes: 167, Evaluated States: 444, Time: 0.263)
+f(n) = 92.0 (Expanded Nodes: 193, Evaluated States: 496, Time: 0.285)
+f(n) = 93.0 (Expanded Nodes: 342, Evaluated States: 766, Time: 0.356)
+f(n) = 94.0 (Expanded Nodes: 355, Evaluated States: 792, Time: 0.363)
+Extracting plan with execution delta: 1.0
+Problem Solved
+0: (retrieve2 m2 m1 c2)
+0.0: -----waiting---- [5.0]
+5.0: (ON_CRATE_RETRIEVED m2 c2)
+5.0: (ON_CRATE_RETRIEVED m1 c2)
+5.0: (retrieve2 m2 m1 c3)
+5.0: (load l1 c2)
+5.0: -----waiting---- [9.0]
+9.0: (ON_CRATE_RETRIEVED m1 c3)
+9.0: (ON_CRATE_RETRIEVED m2 c3)
+9.0: (ON_CRATE_LOADED l1 c2)
+9.0: (retrieve2 m2 m1 c6)
+9.0: (load l1 c3)
+9.0: -----waiting---- [13.0]
+13.0: (ON_CRATE_RETRIEVED m1 c6)
+13.0: (ON_CRATE_RETRIEVED m2 c6)
+13.0: (ON_CRATE_LOADED l1 c3)
+13.0: (retrieve2 m2 m1 c4)
+13.0: (load l1 c6)
+13.0: -----waiting---- [17.0]
+17.0: (ON_CRATE_LOADED l1 c6)
+17.0: -----waiting---- [18.0]
+18.0: (ON_CRATE_RETRIEVED m1 c4)
+18.0: (ON_CRATE_RETRIEVED m2 c4)
+18.0: (retrieve2 m2 m1 c1)
+18.0: (load l1 c4)
+18.0: -----waiting---- [22.0]
+22.0: (ON_CRATE_LOADED l1 c4)
+22.0: -----waiting---- [25.0]
+25.0: (ON_CRATE_RETRIEVED m1 c1)
+25.0: (ON_CRATE_RETRIEVED m2 c1)
+25.0: (load l1 c1)
+25.0: -----waiting---- [29.0]
+29.0: (ON_CRATE_LOADED l1 c1)
+29.0: (retrieve m2 c5)
+29.0: -----waiting---- [41.0]
+41.0: (ON_CRATE_RETRIEVED m2 c5)
+41.0: (load l1 c5)
+41.0: -----waiting---- [45.0]
+45.0: (ON_CRATE_LOADED l1 c5)
+Plan-Length:74
+Elapsed Time: 45.0
+Metric (Search):57.0
+Planning Time:614
+Heuristic Time:338
+Search Time:371
+Expanded Nodes:387
+States Evaluated:841
+Fixed constraint violations during search (zero-crossing):0
+Number of Dead-Ends detected:0
+Number of Duplicates detected:197
+NEW COST ==================================================================================>57.0
+Wrong setting for break-ties. Arbitrary tie breaking
+Setting horizon to:57.0
+Helpful Action Pruning Activated
+Running WA-STAR
+h(n = s_0)=61.0
+f(n) = 61.0 (Expanded Nodes: 0, Evaluated States: 0, Time: 0.0)
+f(n) = 76.0 (Expanded Nodes: 1, Evaluated States: 18, Time: 0.009)
+f(n) = 77.0 (Expanded Nodes: 6, Evaluated States: 38, Time: 0.019)
+f(n) = 82.0 (Expanded Nodes: 10, Evaluated States: 57, Time: 0.028)
+f(n) = 85.0 (Expanded Nodes: 22, Evaluated States: 99, Time: 0.045)
+f(n) = 88.0 (Expanded Nodes: 30, Evaluated States: 122, Time: 0.051)
+f(n) = 89.0 (Expanded Nodes: 36, Evaluated States: 141, Time: 0.056)
+f(n) = 90.0 (Expanded Nodes: 62, Evaluated States: 192, Time: 0.069)
+f(n) = 91.0 (Expanded Nodes: 167, Evaluated States: 444, Time: 0.171)
+f(n) = 92.0 (Expanded Nodes: 193, Evaluated States: 496, Time: 0.188)
+f(n) = 93.0 (Expanded Nodes: 342, Evaluated States: 766, Time: 0.249)
+f(n) = 94.0 (Expanded Nodes: 355, Evaluated States: 792, Time: 0.257)
+Extracting plan with execution delta: 1.0
+Problem Solved
+0: (retrieve2 m2 m1 c2)
+0.0: -----waiting---- [5.0]
+5.0: (ON_CRATE_RETRIEVED m2 c2)
+5.0: (ON_CRATE_RETRIEVED m1 c2)
+5.0: (retrieve2 m2 m1 c3)
+5.0: (load l1 c2)
+5.0: -----waiting---- [9.0]
+9.0: (ON_CRATE_RETRIEVED m1 c3)
+9.0: (ON_CRATE_RETRIEVED m2 c3)
+9.0: (ON_CRATE_LOADED l1 c2)
+9.0: (retrieve2 m2 m1 c6)
+9.0: (load l1 c3)
+9.0: -----waiting---- [13.0]
+13.0: (ON_CRATE_RETRIEVED m1 c6)
+13.0: (ON_CRATE_RETRIEVED m2 c6)
+13.0: (ON_CRATE_LOADED l1 c3)
+13.0: (retrieve2 m2 m1 c4)
+13.0: (load l1 c6)
+13.0: -----waiting---- [17.0]
+17.0: (ON_CRATE_LOADED l1 c6)
+17.0: -----waiting---- [18.0]
+18.0: (ON_CRATE_RETRIEVED m1 c4)
+18.0: (ON_CRATE_RETRIEVED m2 c4)
+18.0: (retrieve2 m2 m1 c1)
+18.0: (load l1 c4)
+18.0: -----waiting---- [22.0]
+22.0: (ON_CRATE_LOADED l1 c4)
+22.0: -----waiting---- [25.0]
+25.0: (ON_CRATE_RETRIEVED m1 c1)
+25.0: (ON_CRATE_RETRIEVED m2 c1)
+25.0: (load l1 c1)
+25.0: -----waiting---- [29.0]
+29.0: (ON_CRATE_LOADED l1 c1)
+29.0: (retrieve2 m2 m1 c5)
+29.0: -----waiting---- [39.0]
+39.0: (ON_CRATE_RETRIEVED m1 c5)
+39.0: (ON_CRATE_RETRIEVED m2 c5)
+39.0: (load l1 c5)
+39.0: -----waiting---- [43.0]
+43.0: (ON_CRATE_LOADED l1 c5)
+Plan-Length:73
+Elapsed Time: 43.0
+Metric (Search):55.0
+Planning Time:888
+Heuristic Time:256
+Search Time:268
+Expanded Nodes:414
+States Evaluated:867
+Fixed constraint violations during search (zero-crossing):0
+Number of Dead-Ends detected:0
+Number of Duplicates detected:198
+NEW COST ==================================================================================>55.0
+Wrong setting for break-ties. Arbitrary tie breaking
+Setting horizon to:55.0
+Helpful Action Pruning Activated
+Running WA-STAR
+h(n = s_0)=61.0
+f(n) = 61.0 (Expanded Nodes: 0, Evaluated States: 0, Time: 0.001)
+f(n) = 76.0 (Expanded Nodes: 1, Evaluated States: 18, Time: 0.006)
+f(n) = 77.0 (Expanded Nodes: 6, Evaluated States: 38, Time: 0.011)
+f(n) = 82.0 (Expanded Nodes: 10, Evaluated States: 57, Time: 0.019)
+f(n) = 85.0 (Expanded Nodes: 22, Evaluated States: 99, Time: 0.032)
+f(n) = 88.0 (Expanded Nodes: 30, Evaluated States: 122, Time: 0.038)
+f(n) = 89.0 (Expanded Nodes: 36, Evaluated States: 141, Time: 0.044)
+f(n) = 90.0 (Expanded Nodes: 62, Evaluated States: 192, Time: 0.058)
+f(n) = 91.0 (Expanded Nodes: 167, Evaluated States: 444, Time: 0.12)
+f(n) = 92.0 (Expanded Nodes: 193, Evaluated States: 496, Time: 0.134)
+f(n) = 93.0 (Expanded Nodes: 342, Evaluated States: 766, Time: 0.196)
+f(n) = 94.0 (Expanded Nodes: 355, Evaluated States: 792, Time: 0.203)
+Extracting plan with execution delta: 1.0
+Problem Solved
+0: (retrieve2 m2 m1 c2)
+0.0: -----waiting---- [5.0]
+5.0: (ON_CRATE_RETRIEVED m2 c2)
+5.0: (ON_CRATE_RETRIEVED m1 c2)
+5.0: (retrieve2 m2 m1 c3)
+5.0: (load l1 c2)
+5.0: -----waiting---- [9.0]
+9.0: (ON_CRATE_RETRIEVED m1 c3)
+9.0: (ON_CRATE_RETRIEVED m2 c3)
+9.0: (ON_CRATE_LOADED l1 c2)
+9.0: (retrieve2 m2 m1 c6)
+9.0: (load l1 c3)
+9.0: -----waiting---- [13.0]
+13.0: (ON_CRATE_RETRIEVED m1 c6)
+13.0: (ON_CRATE_RETRIEVED m2 c6)
+13.0: (ON_CRATE_LOADED l1 c3)
+13.0: (retrieve2 m2 m1 c4)
+13.0: (load l1 c6)
+13.0: -----waiting---- [17.0]
+17.0: (ON_CRATE_LOADED l1 c6)
+17.0: -----waiting---- [18.0]
+18.0: (ON_CRATE_RETRIEVED m1 c4)
+18.0: (ON_CRATE_RETRIEVED m2 c4)
+18.0: (retrieve2 m2 m1 c1)
+18.0: (load l1 c4)
+18.0: -----waiting---- [22.0]
+22.0: (ON_CRATE_LOADED l1 c4)
+22.0: -----waiting---- [25.0]
+25.0: (ON_CRATE_RETRIEVED m1 c1)
+25.0: (ON_CRATE_RETRIEVED m2 c1)
+25.0: (load l1 c1)
+25.0: (retrieve m2 c5)
+25.0: -----waiting---- [29.0]
+29.0: (ON_CRATE_LOADED l1 c1)
+29.0: -----waiting---- [37.0]
+37.0: (ON_CRATE_RETRIEVED m2 c5)
+37.0: (load l1 c5)
+37.0: -----waiting---- [41.0]
+41.0: (ON_CRATE_LOADED l1 c5)
+Plan-Length:70
+Elapsed Time: 41.0
+Metric (Search):53.0
+Planning Time:1108
+Heuristic Time:210
+Search Time:216
+Expanded Nodes:429
+States Evaluated:882
+Fixed constraint violations during search (zero-crossing):0
+Number of Dead-Ends detected:0
+Number of Duplicates detected:198
+NEW COST ==================================================================================>53.0
+Wrong setting for break-ties. Arbitrary tie breaking
+Setting horizon to:53.0
+Helpful Action Pruning Activated
+Running WA-STAR
+h(n = s_0)=61.0
+f(n) = 61.0 (Expanded Nodes: 0, Evaluated States: 0, Time: 0.0)
+f(n) = 76.0 (Expanded Nodes: 1, Evaluated States: 18, Time: 0.005)
+f(n) = 77.0 (Expanded Nodes: 6, Evaluated States: 38, Time: 0.011)
+f(n) = 82.0 (Expanded Nodes: 10, Evaluated States: 57, Time: 0.016)
+f(n) = 85.0 (Expanded Nodes: 22, Evaluated States: 99, Time: 0.029)
+f(n) = 88.0 (Expanded Nodes: 30, Evaluated States: 122, Time: 0.035)
+f(n) = 89.0 (Expanded Nodes: 36, Evaluated States: 141, Time: 0.041)
+f(n) = 90.0 (Expanded Nodes: 62, Evaluated States: 192, Time: 0.054)
+f(n) = 91.0 (Expanded Nodes: 167, Evaluated States: 444, Time: 0.117)
+f(n) = 92.0 (Expanded Nodes: 193, Evaluated States: 496, Time: 0.131)
+f(n) = 93.0 (Expanded Nodes: 342, Evaluated States: 766, Time: 0.193)
+f(n) = 94.0 (Expanded Nodes: 355, Evaluated States: 792, Time: 0.2)
+Extracting plan with execution delta: 1.0
+Problem Solved
+0: (retrieve2 m2 m1 c2)
+0.0: -----waiting---- [5.0]
+5.0: (ON_CRATE_RETRIEVED m2 c2)
+5.0: (ON_CRATE_RETRIEVED m1 c2)
+5.0: (retrieve2 m2 m1 c3)
+5.0: (load l1 c2)
+5.0: -----waiting---- [9.0]
+9.0: (ON_CRATE_RETRIEVED m1 c3)
+9.0: (ON_CRATE_RETRIEVED m2 c3)
+9.0: (ON_CRATE_LOADED l1 c2)
+9.0: (retrieve2 m2 m1 c6)
+9.0: (load l1 c3)
+9.0: -----waiting---- [13.0]
+13.0: (ON_CRATE_RETRIEVED m1 c6)
+13.0: (ON_CRATE_RETRIEVED m2 c6)
+13.0: (ON_CRATE_LOADED l1 c3)
+13.0: (retrieve2 m2 m1 c4)
+13.0: (load l1 c6)
+13.0: -----waiting---- [17.0]
+17.0: (ON_CRATE_LOADED l1 c6)
+17.0: -----waiting---- [18.0]
+18.0: (ON_CRATE_RETRIEVED m1 c4)
+18.0: (ON_CRATE_RETRIEVED m2 c4)
+18.0: (retrieve2 m2 m1 c1)
+18.0: (load l1 c4)
+18.0: -----waiting---- [22.0]
+22.0: (ON_CRATE_LOADED l1 c4)
+22.0: -----waiting---- [25.0]
+25.0: (ON_CRATE_RETRIEVED m1 c1)
+25.0: (ON_CRATE_RETRIEVED m2 c1)
+25.0: (load l1 c1)
+25.0: (retrieve2 m2 m1 c5)
+25.0: -----waiting---- [29.0]
+29.0: (ON_CRATE_LOADED l1 c1)
+29.0: -----waiting---- [35.0]
+35.0: (ON_CRATE_RETRIEVED m1 c5)
+35.0: (ON_CRATE_RETRIEVED m2 c5)
+35.0: (load l1 c5)
+35.0: -----waiting---- [39.0]
+39.0: (ON_CRATE_LOADED l1 c5)
+Plan-Length:69
+Elapsed Time: 39.0
+Metric (Search):51.0
+Planning Time:1329
+Heuristic Time:213
+Search Time:217
+Expanded Nodes:456
+States Evaluated:907
+Fixed constraint violations during search (zero-crossing):0
+Number of Dead-Ends detected:0
+Number of Duplicates detected:200
+NEW COST ==================================================================================>51.0
+Wrong setting for break-ties. Arbitrary tie breaking
+Setting horizon to:51.0
+Helpful Action Pruning Activated
+Running WA-STAR
+h(n = s_0)=61.0
+f(n) = 61.0 (Expanded Nodes: 0, Evaluated States: 0, Time: 0.0)
+f(n) = 76.0 (Expanded Nodes: 1, Evaluated States: 18, Time: 0.006)
+f(n) = 77.0 (Expanded Nodes: 6, Evaluated States: 38, Time: 0.011)
+f(n) = 82.0 (Expanded Nodes: 10, Evaluated States: 57, Time: 0.017)
+f(n) = 85.0 (Expanded Nodes: 22, Evaluated States: 99, Time: 0.028)
+f(n) = 88.0 (Expanded Nodes: 30, Evaluated States: 122, Time: 0.034)
+f(n) = 89.0 (Expanded Nodes: 36, Evaluated States: 141, Time: 0.04)
+f(n) = 90.0 (Expanded Nodes: 62, Evaluated States: 192, Time: 0.054)
+f(n) = 91.0 (Expanded Nodes: 167, Evaluated States: 444, Time: 0.115)
+f(n) = 92.0 (Expanded Nodes: 193, Evaluated States: 496, Time: 0.129)
+f(n) = 93.0 (Expanded Nodes: 342, Evaluated States: 766, Time: 0.188)
+f(n) = 94.0 (Expanded Nodes: 355, Evaluated States: 792, Time: 0.195)
+Extracting plan with execution delta: 1.0
+Problem Solved
+0: (retrieve2 m2 m1 c6)
+0.0: -----waiting---- [3.0]
+3.0: (ON_CRATE_RETRIEVED m1 c6)
+3.0: (ON_CRATE_RETRIEVED m2 c6)
+3.0: (retrieve2 m2 m1 c3)
+3.0: (load l1 c6)
+3.0: -----waiting---- [7.0]
+7.0: (ON_CRATE_RETRIEVED m1 c3)
+7.0: (ON_CRATE_RETRIEVED m2 c3)
+7.0: (ON_CRATE_LOADED l1 c6)
+7.0: (retrieve2 m2 m1 c4)
+7.0: (load l1 c3)
+7.0: -----waiting---- [11.0]
+11.0: (ON_CRATE_LOADED l1 c3)
+11.0: -----waiting---- [12.0]
+12.0: (ON_CRATE_RETRIEVED m1 c4)
+12.0: (ON_CRATE_RETRIEVED m2 c4)
+12.0: (retrieve2 m2 m1 c2)
+12.0: (load l1 c4)
+12.0: -----waiting---- [16.0]
+16.0: (ON_CRATE_LOADED l1 c4)
+16.0: -----waiting---- [17.0]
+17.0: (ON_CRATE_RETRIEVED m2 c2)
+17.0: (ON_CRATE_RETRIEVED m1 c2)
+17.0: (retrieve2 m2 m1 c1)
+17.0: (load l1 c2)
+17.0: -----waiting---- [21.0]
+21.0: (ON_CRATE_LOADED l1 c2)
+21.0: -----waiting---- [24.0]
+24.0: (ON_CRATE_RETRIEVED m1 c1)
+24.0: (ON_CRATE_RETRIEVED m2 c1)
+24.0: (load l1 c1)
+24.0: (retrieve2 m2 m1 c5)
+24.0: -----waiting---- [28.0]
+28.0: (ON_CRATE_LOADED l1 c1)
+28.0: -----waiting---- [34.0]
+34.0: (ON_CRATE_RETRIEVED m1 c5)
+34.0: (ON_CRATE_RETRIEVED m2 c5)
+34.0: (load l1 c5)
+34.0: -----waiting---- [38.0]
+38.0: (ON_CRATE_LOADED l1 c5)
+Plan-Length:68
+Elapsed Time: 38.0
+Metric (Search):50.0
+Planning Time:1632
+Heuristic Time:287
+Search Time:299
+Expanded Nodes:837
+States Evaluated:1378
+Fixed constraint violations during search (zero-crossing):0
+Number of Dead-Ends detected:0
+Number of Duplicates detected:322
+NEW COST ==================================================================================>50.0
+Wrong setting for break-ties. Arbitrary tie breaking
+Setting horizon to:50.0
+Helpful Action Pruning Activated
+Running WA-STAR
+h(n = s_0)=61.0
+f(n) = 61.0 (Expanded Nodes: 0, Evaluated States: 0, Time: 0.0)
+f(n) = 76.0 (Expanded Nodes: 1, Evaluated States: 18, Time: 0.006)
+f(n) = 77.0 (Expanded Nodes: 6, Evaluated States: 38, Time: 0.012)
+f(n) = 82.0 (Expanded Nodes: 10, Evaluated States: 57, Time: 0.017)
+f(n) = 85.0 (Expanded Nodes: 22, Evaluated States: 99, Time: 0.029)
+f(n) = 88.0 (Expanded Nodes: 30, Evaluated States: 122, Time: 0.035)
+f(n) = 89.0 (Expanded Nodes: 36, Evaluated States: 141, Time: 0.04)
+f(n) = 90.0 (Expanded Nodes: 62, Evaluated States: 192, Time: 0.053)
+f(n) = 91.0 (Expanded Nodes: 167, Evaluated States: 444, Time: 0.114)
+f(n) = 92.0 (Expanded Nodes: 193, Evaluated States: 496, Time: 0.127)
+f(n) = 93.0 (Expanded Nodes: 342, Evaluated States: 766, Time: 0.186)
+f(n) = 94.0 (Expanded Nodes: 355, Evaluated States: 792, Time: 0.193)
+f(n) = 95.0 (Expanded Nodes: 1046, Evaluated States: 1705, Time: 0.376)
+f(n) = 96.0 (Expanded Nodes: 1105, Evaluated States: 1797, Time: 0.397)
+f(n) = 97.0 (Expanded Nodes: 1813, Evaluated States: 2692, Time: 0.557)
+f(n) = 98.0 (Expanded Nodes: 1991, Evaluated States: 2912, Time: 0.599)
+f(n) = 99.0 (Expanded Nodes: 2977, Evaluated States: 4244, Time: 0.862)
+f(n) = 100.0 (Expanded Nodes: 3602, Evaluated States: 4998, Time: 0.996)
+f(n) = 101.0 (Expanded Nodes: 4879, Evaluated States: 6585, Time: 1.304)
+f(n) = 102.0 (Expanded Nodes: 5965, Evaluated States: 7925, Time: 1.539)
+f(n) = 103.0 (Expanded Nodes: 6942, Evaluated States: 9227, Time: 1.822)
+f(n) = 104.0 (Expanded Nodes: 8299, Evaluated States: 10758, Time: 2.083)
+f(n) = 105.0 (Expanded Nodes: 10002, Evaluated States: 12948, Time: 2.48)
+f(n) = 106.0 (Expanded Nodes: 10813, Evaluated States: 13924, Time: 2.665)
+f(n) = 107.0 (Expanded Nodes: 11756, Evaluated States: 15221, Time: 2.904)
+f(n) = 108.0 (Expanded Nodes: 12907, Evaluated States: 16669, Time: 3.159)
+f(n) = 109.0 (Expanded Nodes: 13747, Evaluated States: 17868, Time: 3.387)
+f(n) = 110.0 (Expanded Nodes: 15001, Evaluated States: 19404, Time: 3.682)
+Extracting plan with execution delta: 1.0
+Problem Solved
+0: (retrieve2 m2 m1 c5)
+0.0: -----waiting---- [10.0]
+10.0: (ON_CRATE_RETRIEVED m1 c5)
+10.0: (ON_CRATE_RETRIEVED m2 c5)
+10.0: (retrieve2 m2 m1 c2)
+10.0: (load l1 c5)
+10.0: -----waiting---- [14.0]
+14.0: (ON_CRATE_LOADED l1 c5)
+14.0: -----waiting---- [15.0]
+15.0: (ON_CRATE_RETRIEVED m2 c2)
+15.0: (ON_CRATE_RETRIEVED m1 c2)
+15.0: (retrieve2 m2 m1 c4)
+15.0: (load l1 c2)
+15.0: -----waiting---- [19.0]
+19.0: (ON_CRATE_LOADED l1 c2)
+19.0: -----waiting---- [20.0]
+20.0: (ON_CRATE_RETRIEVED m1 c4)
+20.0: (ON_CRATE_RETRIEVED m2 c4)
+20.0: (retrieve2 m2 m1 c6)
+20.0: (load l1 c4)
+20.0: -----waiting---- [24.0]
+24.0: (ON_CRATE_RETRIEVED m1 c6)
+24.0: (ON_CRATE_RETRIEVED m2 c6)
+24.0: (ON_CRATE_LOADED l1 c4)
+24.0: (load l1 c6)
+24.0: (retrieve m2 c3)
+24.0: (retrieve m1 c1)
+24.0: -----waiting---- [28.0]
+28.0: (ON_CRATE_RETRIEVED m2 c3)
+28.0: (ON_CRATE_LOADED l1 c6)
+28.0: (load l1 c3)
+28.0: -----waiting---- [32.0]
+32.0: (ON_CRATE_RETRIEVED m1 c1)
+32.0: (ON_CRATE_LOADED l1 c3)
+32.0: (load l1 c1)
+32.0: -----waiting---- [36.0]
+36.0: (ON_CRATE_LOADED l1 c1)
+Plan-Length:64
+Elapsed Time: 36.0
+Metric (Search):48.0
+Planning Time:5400
+Heuristic Time:3615
+Search Time:3764
+Expanded Nodes:15393
+States Evaluated:19888
+Fixed constraint violations during search (zero-crossing):0
+Number of Dead-Ends detected:0
+Number of Duplicates detected:5225
+NEW COST ==================================================================================>48.0
+Wrong setting for break-ties. Arbitrary tie breaking
+Setting horizon to:48.0
+Helpful Action Pruning Activated
+Running WA-STAR
+h(n = s_0)=61.0
+f(n) = 61.0 (Expanded Nodes: 0, Evaluated States: 0, Time: 0.0)
+f(n) = 76.0 (Expanded Nodes: 1, Evaluated States: 18, Time: 0.007)
+f(n) = 77.0 (Expanded Nodes: 6, Evaluated States: 38, Time: 0.013)
+f(n) = 82.0 (Expanded Nodes: 10, Evaluated States: 57, Time: 0.018)
+f(n) = 85.0 (Expanded Nodes: 22, Evaluated States: 99, Time: 0.03)
+f(n) = 88.0 (Expanded Nodes: 30, Evaluated States: 122, Time: 0.036)
+f(n) = 89.0 (Expanded Nodes: 36, Evaluated States: 141, Time: 0.041)
+f(n) = 90.0 (Expanded Nodes: 62, Evaluated States: 192, Time: 0.055)
+f(n) = 91.0 (Expanded Nodes: 167, Evaluated States: 444, Time: 0.116)
+f(n) = 92.0 (Expanded Nodes: 193, Evaluated States: 496, Time: 0.129)
+f(n) = 93.0 (Expanded Nodes: 342, Evaluated States: 766, Time: 0.188)
+f(n) = 94.0 (Expanded Nodes: 355, Evaluated States: 792, Time: 0.195)
+f(n) = 95.0 (Expanded Nodes: 1034, Evaluated States: 1693, Time: 0.365)
+f(n) = 96.0 (Expanded Nodes: 1093, Evaluated States: 1785, Time: 0.385)
+f(n) = 97.0 (Expanded Nodes: 1783, Evaluated States: 2665, Time: 0.564)
+f(n) = 98.0 (Expanded Nodes: 1961, Evaluated States: 2885, Time: 0.607)
+f(n) = 99.0 (Expanded Nodes: 3037, Evaluated States: 4328, Time: 0.887)
+f(n) = 100.0 (Expanded Nodes: 3648, Evaluated States: 5074, Time: 1.035)
+f(n) = 101.0 (Expanded Nodes: 4917, Evaluated States: 6661, Time: 1.329)
+f(n) = 102.0 (Expanded Nodes: 5980, Evaluated States: 7990, Time: 1.578)
+f(n) = 103.0 (Expanded Nodes: 6967, Evaluated States: 9310, Time: 1.845)
+f(n) = 104.0 (Expanded Nodes: 8320, Evaluated States: 10841, Time: 2.106)
+f(n) = 105.0 (Expanded Nodes: 10011, Evaluated States: 13028, Time: 2.505)
+f(n) = 106.0 (Expanded Nodes: 10822, Evaluated States: 14004, Time: 2.688)
+f(n) = 107.0 (Expanded Nodes: 11753, Evaluated States: 15291, Time: 2.926)
+f(n) = 108.0 (Expanded Nodes: 12896, Evaluated States: 16738, Time: 3.182)
+f(n) = 109.0 (Expanded Nodes: 13738, Evaluated States: 17937, Time: 3.407)
+f(n) = 110.0 (Expanded Nodes: 14992, Evaluated States: 19473, Time: 3.701)
+f(n) = 111.0 (Expanded Nodes: 16130, Evaluated States: 20789, Time: 3.918)
+f(n) = 112.0 (Expanded Nodes: 19675, Evaluated States: 24576, Time: 4.525)
+Extracting plan with execution delta: 1.0
+Problem Solved
+0: (retrieve2 m2 m1 c6)
+0.0: -----waiting---- [3.0]
+3.0: (ON_CRATE_RETRIEVED m1 c6)
+3.0: (ON_CRATE_RETRIEVED m2 c6)
+3.0: (retrieve2 m2 m1 c4)
+3.0: (load l1 c6)
+3.0: -----waiting---- [7.0]
+7.0: (ON_CRATE_LOADED l1 c6)
+7.0: -----waiting---- [8.0]
+8.0: (ON_CRATE_RETRIEVED m1 c4)
+8.0: (ON_CRATE_RETRIEVED m2 c4)
+8.0: (retrieve2 m2 m1 c2)
+8.0: (load l1 c4)
+8.0: -----waiting---- [12.0]
+12.0: (ON_CRATE_LOADED l1 c4)
+12.0: -----waiting---- [13.0]
+13.0: (ON_CRATE_RETRIEVED m2 c2)
+13.0: (ON_CRATE_RETRIEVED m1 c2)
+13.0: (retrieve2 m2 m1 c5)
+13.0: (load l1 c2)
+13.0: -----waiting---- [17.0]
+17.0: (ON_CRATE_LOADED l1 c2)
+17.0: -----waiting---- [23.0]
+23.0: (ON_CRATE_RETRIEVED m1 c5)
+23.0: (ON_CRATE_RETRIEVED m2 c5)
+23.0: (load l1 c5)
+23.0: (retrieve m2 c3)
+23.0: (retrieve m1 c1)
+23.0: -----waiting---- [27.0]
+27.0: (ON_CRATE_RETRIEVED m2 c3)
+27.0: (ON_CRATE_LOADED l1 c5)
+27.0: (load l1 c3)
+27.0: -----waiting---- [31.0]
+31.0: (ON_CRATE_RETRIEVED m1 c1)
+31.0: (ON_CRATE_LOADED l1 c3)
+31.0: (load l1 c1)
+31.0: -----waiting---- [35.0]
+35.0: (ON_CRATE_LOADED l1 c1)
+Plan-Length:63
+Elapsed Time: 35.0
+Metric (Search):47.0
+Planning Time:10023
+Heuristic Time:4452
+Search Time:4617
+Expanded Nodes:20192
+States Evaluated:25148
+Fixed constraint violations during search (zero-crossing):0
+Number of Dead-Ends detected:0
+Number of Duplicates detected:6773
+NEW COST ==================================================================================>47.0
+Wrong setting for break-ties. Arbitrary tie breaking
+Setting horizon to:47.0
+Helpful Action Pruning Activated
+Running WA-STAR
+h(n = s_0)=61.0
+f(n) = 61.0 (Expanded Nodes: 0, Evaluated States: 0, Time: 0.0)
+f(n) = 76.0 (Expanded Nodes: 1, Evaluated States: 18, Time: 0.005)
+f(n) = 77.0 (Expanded Nodes: 6, Evaluated States: 38, Time: 0.01)
+f(n) = 82.0 (Expanded Nodes: 10, Evaluated States: 57, Time: 0.016)
+f(n) = 85.0 (Expanded Nodes: 22, Evaluated States: 99, Time: 0.028)
+f(n) = 88.0 (Expanded Nodes: 30, Evaluated States: 122, Time: 0.033)
+f(n) = 89.0 (Expanded Nodes: 36, Evaluated States: 141, Time: 0.038)
+f(n) = 90.0 (Expanded Nodes: 62, Evaluated States: 192, Time: 0.052)
+f(n) = 91.0 (Expanded Nodes: 167, Evaluated States: 444, Time: 0.113)
+f(n) = 92.0 (Expanded Nodes: 193, Evaluated States: 496, Time: 0.126)
+f(n) = 93.0 (Expanded Nodes: 342, Evaluated States: 766, Time: 0.185)
+f(n) = 94.0 (Expanded Nodes: 355, Evaluated States: 792, Time: 0.192)
+f(n) = 95.0 (Expanded Nodes: 994, Evaluated States: 1650, Time: 0.354)
+f(n) = 96.0 (Expanded Nodes: 1053, Evaluated States: 1742, Time: 0.375)
+f(n) = 97.0 (Expanded Nodes: 1734, Evaluated States: 2613, Time: 0.546)
+f(n) = 98.0 (Expanded Nodes: 1912, Evaluated States: 2833, Time: 0.588)
+f(n) = 99.0 (Expanded Nodes: 3019, Evaluated States: 4304, Time: 0.872)
+f(n) = 100.0 (Expanded Nodes: 3618, Evaluated States: 5040, Time: 1.025)
+f(n) = 101.0 (Expanded Nodes: 4867, Evaluated States: 6608, Time: 1.314)
+f(n) = 102.0 (Expanded Nodes: 5914, Evaluated States: 7923, Time: 1.545)
+f(n) = 103.0 (Expanded Nodes: 6920, Evaluated States: 9270, Time: 1.836)
+f(n) = 104.0 (Expanded Nodes: 8269, Evaluated States: 10797, Time: 2.105)
+f(n) = 105.0 (Expanded Nodes: 9951, Evaluated States: 12975, Time: 2.515)
+f(n) = 106.0 (Expanded Nodes: 10763, Evaluated States: 13955, Time: 2.701)
+f(n) = 107.0 (Expanded Nodes: 11692, Evaluated States: 15244, Time: 2.946)
+f(n) = 108.0 (Expanded Nodes: 12828, Evaluated States: 16684, Time: 3.204)
+f(n) = 109.0 (Expanded Nodes: 13666, Evaluated States: 17876, Time: 3.429)
+f(n) = 110.0 (Expanded Nodes: 14908, Evaluated States: 19412, Time: 3.723)
+f(n) = 111.0 (Expanded Nodes: 15991, Evaluated States: 20691, Time: 3.934)
+f(n) = 112.0 (Expanded Nodes: 19499, Evaluated States: 24458, Time: 4.538)
+f(n) = 113.0 (Expanded Nodes: 22509, Evaluated States: 27700, Time: 5.081)
+f(n) = 114.0 (Expanded Nodes: 25632, Evaluated States: 30952, Time: 5.621)
+f(n) = 115.0 (Expanded Nodes: 28838, Evaluated States: 34295, Time: 6.174)
+f(n) = 116.0 (Expanded Nodes: 33073, Evaluated States: 38894, Time: 6.977)
+Extracting plan with execution delta: 1.0
+Problem Solved
+0: (retrieve2 m2 m1 c6)
+0.0: -----waiting---- [3.0]
+3.0: (ON_CRATE_RETRIEVED m1 c6)
+3.0: (ON_CRATE_RETRIEVED m2 c6)
+3.0: (retrieve2 m2 m1 c3)
+3.0: (load l1 c6)
+3.0: -----waiting---- [7.0]
+7.0: (ON_CRATE_RETRIEVED m1 c3)
+7.0: (ON_CRATE_RETRIEVED m2 c3)
+7.0: (ON_CRATE_LOADED l1 c6)
+7.0: (retrieve2 m2 m1 c4)
+7.0: (load l1 c3)
+7.0: -----waiting---- [11.0]
+11.0: (ON_CRATE_LOADED l1 c3)
+11.0: -----waiting---- [12.0]
+12.0: (ON_CRATE_RETRIEVED m1 c4)
+12.0: (ON_CRATE_RETRIEVED m2 c4)
+12.0: (retrieve2 m2 m1 c2)
+12.0: (load l1 c4)
+12.0: -----waiting---- [16.0]
+16.0: (ON_CRATE_LOADED l1 c4)
+16.0: -----waiting---- [17.0]
+17.0: (ON_CRATE_RETRIEVED m2 c2)
+17.0: (ON_CRATE_RETRIEVED m1 c2)
+17.0: (load l1 c2)
+17.0: (retrieve m1 c1)
+17.0: (retrieve m2 c5)
+17.0: -----waiting---- [21.0]
+21.0: (ON_CRATE_LOADED l1 c2)
+21.0: -----waiting---- [25.0]
+25.0: (ON_CRATE_RETRIEVED m1 c1)
+25.0: (load l1 c1)
+25.0: -----waiting---- [29.0]
+29.0: (ON_CRATE_RETRIEVED m2 c5)
+29.0: (ON_CRATE_LOADED l1 c1)
+29.0: (load l1 c5)
+29.0: -----waiting---- [33.0]
+33.0: (ON_CRATE_LOADED l1 c5)
+Plan-Length:61
+Elapsed Time: 33.0
+Metric (Search):45.0
+Planning Time:17460
+Heuristic Time:7134
+Search Time:7427
+Expanded Nodes:35578
+States Evaluated:41504
+Fixed constraint violations during search (zero-crossing):0
+Number of Dead-Ends detected:0
+Number of Duplicates detected:12780
+NEW COST ==================================================================================>45.0
+Wrong setting for break-ties. Arbitrary tie breaking
+Setting horizon to:45.0
+Helpful Action Pruning Activated
+Running WA-STAR
+h(n = s_0)=61.0
+f(n) = 61.0 (Expanded Nodes: 0, Evaluated States: 0, Time: 0.0)
+f(n) = 76.0 (Expanded Nodes: 1, Evaluated States: 18, Time: 0.005)
+f(n) = 77.0 (Expanded Nodes: 6, Evaluated States: 38, Time: 0.01)
+f(n) = 82.0 (Expanded Nodes: 10, Evaluated States: 57, Time: 0.015)
+f(n) = 85.0 (Expanded Nodes: 22, Evaluated States: 99, Time: 0.028)
+f(n) = 88.0 (Expanded Nodes: 30, Evaluated States: 122, Time: 0.034)
+f(n) = 89.0 (Expanded Nodes: 36, Evaluated States: 141, Time: 0.039)
+f(n) = 90.0 (Expanded Nodes: 62, Evaluated States: 192, Time: 0.052)
+f(n) = 91.0 (Expanded Nodes: 167, Evaluated States: 444, Time: 0.113)
+f(n) = 92.0 (Expanded Nodes: 193, Evaluated States: 496, Time: 0.126)
+f(n) = 93.0 (Expanded Nodes: 342, Evaluated States: 766, Time: 0.184)
+f(n) = 94.0 (Expanded Nodes: 355, Evaluated States: 792, Time: 0.19)
+f(n) = 95.0 (Expanded Nodes: 1009, Evaluated States: 1671, Time: 0.355)
+f(n) = 96.0 (Expanded Nodes: 1068, Evaluated States: 1763, Time: 0.376)
+f(n) = 97.0 (Expanded Nodes: 1717, Evaluated States: 2609, Time: 0.545)
+f(n) = 98.0 (Expanded Nodes: 1895, Evaluated States: 2829, Time: 0.586)
+f(n) = 99.0 (Expanded Nodes: 2971, Evaluated States: 4272, Time: 0.87)
+f(n) = 100.0 (Expanded Nodes: 3514, Evaluated States: 4978, Time: 1.006)
+f(n) = 101.0 (Expanded Nodes: 4707, Evaluated States: 6522, Time: 1.291)
+f(n) = 102.0 (Expanded Nodes: 5672, Evaluated States: 7784, Time: 1.53)
+f(n) = 103.0 (Expanded Nodes: 6669, Evaluated States: 9122, Time: 1.798)
+f(n) = 104.0 (Expanded Nodes: 7870, Evaluated States: 10599, Time: 2.07)
+f(n) = 105.0 (Expanded Nodes: 9468, Evaluated States: 12744, Time: 2.457)
+f(n) = 106.0 (Expanded Nodes: 10261, Evaluated States: 13720, Time: 2.638)
+f(n) = 107.0 (Expanded Nodes: 11160, Evaluated States: 14985, Time: 2.873)
+f(n) = 108.0 (Expanded Nodes: 12249, Evaluated States: 16411, Time: 3.123)
+f(n) = 109.0 (Expanded Nodes: 13048, Evaluated States: 17595, Time: 3.345)
+f(n) = 110.0 (Expanded Nodes: 14242, Evaluated States: 19103, Time: 3.611)
+f(n) = 111.0 (Expanded Nodes: 15181, Evaluated States: 20256, Time: 3.806)
+f(n) = 112.0 (Expanded Nodes: 18553, Evaluated States: 23943, Time: 4.399)
+f(n) = 113.0 (Expanded Nodes: 21505, Evaluated States: 27171, Time: 4.939)
+f(n) = 114.0 (Expanded Nodes: 24590, Evaluated States: 30415, Time: 5.476)
+f(n) = 115.0 (Expanded Nodes: 27751, Evaluated States: 33744, Time: 6.028)
+f(n) = 116.0 (Expanded Nodes: 31981, Evaluated States: 38347, Time: 6.838)
+f(n) = 117.0 (Expanded Nodes: 35966, Evaluated States: 42495, Time: 7.571)
+f(n) = 118.0 (Expanded Nodes: 39487, Evaluated States: 46054, Time: 8.194)
+f(n) = 119.0 (Expanded Nodes: 42303, Evaluated States: 48954, Time: 8.717)
+f(n) = 120.0 (Expanded Nodes: 45146, Evaluated States: 52005, Time: 9.289)
+f(n) = 121.0 (Expanded Nodes: 47020, Evaluated States: 53970, Time: 9.659)
+f(n) = 122.0 (Expanded Nodes: 48596, Evaluated States: 55654, Time: 9.967)
+-------------Time: 10s ; Expanded Nodes: 48802 (Avg-Speed 4880.0 n/s); Evaluated States: 55845
+f(n) = 123.0 (Expanded Nodes: 50359, Evaluated States: 57438, Time: 10.292)
+f(n) = 124.0 (Expanded Nodes: 51792, Evaluated States: 58832, Time: 10.547)
+f(n) = 125.0 (Expanded Nodes: 53127, Evaluated States: 60206, Time: 10.793)
+f(n) = 126.0 (Expanded Nodes: 54006, Evaluated States: 61090, Time: 10.946)
+f(n) = 127.0 (Expanded Nodes: 54625, Evaluated States: 61680, Time: 11.052)
+f(n) = 128.0 (Expanded Nodes: 54848, Evaluated States: 61848, Time: 11.085)
+f(n) = 129.0 (Expanded Nodes: 55129, Evaluated States: 62084, Time: 11.127)
+f(n) = 130.0 (Expanded Nodes: 55583, Evaluated States: 62550, Time: 11.214)
+f(n) = 131.0 (Expanded Nodes: 55996, Evaluated States: 63063, Time: 11.312)
+f(n) = 132.0 (Expanded Nodes: 57452, Evaluated States: 64711, Time: 11.619)
+f(n) = 133.0 (Expanded Nodes: 59443, Evaluated States: 66962, Time: 12.056)
+f(n) = 134.0 (Expanded Nodes: 61635, Evaluated States: 69622, Time: 12.578)
+f(n) = 135.0 (Expanded Nodes: 64346, Evaluated States: 72824, Time: 13.181)
+f(n) = 136.0 (Expanded Nodes: 67226, Evaluated States: 76328, Time: 13.865)
+f(n) = 137.0 (Expanded Nodes: 70963, Evaluated States: 80698, Time: 14.688)
+f(n) = 138.0 (Expanded Nodes: 79622, Evaluated States: 90222, Time: 16.358)
+f(n) = 139.0 (Expanded Nodes: 88163, Evaluated States: 99418, Time: 17.977)
+f(n) = 140.0 (Expanded Nodes: 94920, Evaluated States: 106580, Time: 19.294)
+-------------Time: 20s ; Expanded Nodes: 98762 (Avg-Speed 4938.0 n/s); Evaluated States: 110502
+f(n) = 141.0 (Expanded Nodes: 102731, Evaluated States: 114479, Time: 20.717)
+f(n) = 142.0 (Expanded Nodes: 108380, Evaluated States: 121022, Time: 22.007)
+f(n) = 143.0 (Expanded Nodes: 113957, Evaluated States: 127005, Time: 23.138)
+Extracting plan with execution delta: 1.0
+Problem Solved
+0: (retrieve2 m2 m1 c6)
+0.0: -----waiting---- [3.0]
+3.0: (ON_CRATE_RETRIEVED m1 c6)
+3.0: (ON_CRATE_RETRIEVED m2 c6)
+3.0: (retrieve2 m2 m1 c4)
+3.0: (load l1 c6)
+3.0: -----waiting---- [7.0]
+7.0: (ON_CRATE_LOADED l1 c6)
+7.0: -----waiting---- [8.0]
+8.0: (ON_CRATE_RETRIEVED m1 c4)
+8.0: (ON_CRATE_RETRIEVED m2 c4)
+8.0: (retrieve2 m2 m1 c3)
+8.0: (load l1 c4)
+8.0: -----waiting---- [12.0]
+12.0: (ON_CRATE_RETRIEVED m1 c3)
+12.0: (ON_CRATE_RETRIEVED m2 c3)
+12.0: (ON_CRATE_LOADED l1 c4)
+12.0: (load l1 c3)
+12.0: (retrieve m2 c1)
+12.0: (retrieve m1 c5)
+12.0: -----waiting---- [16.0]
+16.0: (ON_CRATE_LOADED l1 c3)
+16.0: -----waiting---- [20.0]
+20.0: (ON_CRATE_RETRIEVED m2 c1)
+20.0: (load l1 c1)
+20.0: (retrieve m2 c2)
+20.0: -----waiting---- [24.0]
+24.0: (ON_CRATE_RETRIEVED m1 c5)
+24.0: (ON_CRATE_LOADED l1 c1)
+24.0: (load l1 c5)
+24.0: -----waiting---- [28.0]
+28.0: (ON_CRATE_RETRIEVED m2 c2)
+28.0: (ON_CRATE_LOADED l1 c5)
+28.0: (load l1 c2)
+28.0: -----waiting---- [32.0]
+32.0: (ON_CRATE_LOADED l1 c2)
+Plan-Length:59
+Elapsed Time: 32.0
+Metric (Search):44.0
+Planning Time:41184
+Heuristic Time:22847
+Search Time:23714
+Expanded Nodes:116783
+States Evaluated:130029
+Fixed constraint violations during search (zero-crossing):0
+Number of Dead-Ends detected:0
+Number of Duplicates detected:42698
