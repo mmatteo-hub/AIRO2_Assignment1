@@ -1,0 +1,291 @@
+Problem parsed
+Grounding..
+Grounding Time: 32
+(Pre Simplification) - |A|+|P|+|E|: 64
+AIBR :: Number of Supporters = 146
+(After Easy Simplification) - |A|+|P|+|E|: 44
+|F|:23
+|X|:11
+line 21:13 mismatched character '\r' expecting 'd'
+Grounding and Simplification finished
+|A|:17
+|P|:12
+|E|:15
+Delta time heuristic model:1.0
+Delta time planning model:1.0
+Delta time search-execution model:1.0
+Delta time validation model:1
+ha:false htfalse
+AIBR selected
+Setting horizon to:NaN
+Helpful Action Pruning Activated
+Running WA-STAR
+h(n = s_0)=44.0
+f(n) = 44.0 (Expanded Nodes: 0, Evaluated States: 0, Time: 0.007)
+f(n) = 63.0 (Expanded Nodes: 1, Evaluated States: 6, Time: 0.023)
+f(n) = 64.0 (Expanded Nodes: 2, Evaluated States: 7, Time: 0.024)
+f(n) = 76.0 (Expanded Nodes: 6, Evaluated States: 17, Time: 0.035)
+f(n) = 77.0 (Expanded Nodes: 16, Evaluated States: 37, Time: 0.055)
+f(n) = 79.0 (Expanded Nodes: 31, Evaluated States: 91, Time: 0.107)
+f(n) = 80.0 (Expanded Nodes: 53, Evaluated States: 161, Time: 0.158)
+f(n) = 81.0 (Expanded Nodes: 60, Evaluated States: 177, Time: 0.171)
+f(n) = 82.0 (Expanded Nodes: 312, Evaluated States: 724, Time: 0.416)
+f(n) = 83.0 (Expanded Nodes: 338, Evaluated States: 776, Time: 0.433)
+f(n) = 84.0 (Expanded Nodes: 399, Evaluated States: 891, Time: 0.472)
+f(n) = 85.0 (Expanded Nodes: 427, Evaluated States: 931, Time: 0.484)
+f(n) = 86.0 (Expanded Nodes: 464, Evaluated States: 992, Time: 0.504)
+f(n) = 87.0 (Expanded Nodes: 478, Evaluated States: 1011, Time: 0.51)
+f(n) = 88.0 (Expanded Nodes: 491, Evaluated States: 1034, Time: 0.518)
+f(n) = 98.0 (Expanded Nodes: 495, Evaluated States: 1040, Time: 0.521)
+f(n) = 99.0 (Expanded Nodes: 496, Evaluated States: 1041, Time: 0.521)
+f(n) = 100.0 (Expanded Nodes: 547, Evaluated States: 1134, Time: 0.552)
+f(n) = 101.0 (Expanded Nodes: 574, Evaluated States: 1161, Time: 0.561)
+f(n) = 102.0 (Expanded Nodes: 599, Evaluated States: 1194, Time: 0.572)
+f(n) = 103.0 (Expanded Nodes: 624, Evaluated States: 1219, Time: 0.58)
+f(n) = 104.0 (Expanded Nodes: 646, Evaluated States: 1247, Time: 0.59)
+f(n) = 105.0 (Expanded Nodes: 672, Evaluated States: 1273, Time: 0.599)
+f(n) = 106.0 (Expanded Nodes: 710, Evaluated States: 1315, Time: 0.613)
+f(n) = 107.0 (Expanded Nodes: 742, Evaluated States: 1344, Time: 0.623)
+f(n) = 108.0 (Expanded Nodes: 783, Evaluated States: 1386, Time: 0.638)
+f(n) = 109.0 (Expanded Nodes: 935, Evaluated States: 1635, Time: 0.716)
+f(n) = 110.0 (Expanded Nodes: 982, Evaluated States: 1687, Time: 0.733)
+f(n) = 111.0 (Expanded Nodes: 1067, Evaluated States: 1797, Time: 0.769)
+f(n) = 112.0 (Expanded Nodes: 1165, Evaluated States: 1892, Time: 0.8)
+f(n) = 113.0 (Expanded Nodes: 1266, Evaluated States: 1997, Time: 0.836)
+f(n) = 114.0 (Expanded Nodes: 1394, Evaluated States: 2108, Time: 0.876)
+f(n) = 115.0 (Expanded Nodes: 1524, Evaluated States: 2224, Time: 0.916)
+f(n) = 116.0 (Expanded Nodes: 1620, Evaluated States: 2305, Time: 0.944)
+f(n) = 117.0 (Expanded Nodes: 1696, Evaluated States: 2361, Time: 0.964)
+f(n) = 118.0 (Expanded Nodes: 1776, Evaluated States: 2426, Time: 0.988)
+f(n) = 119.0 (Expanded Nodes: 1839, Evaluated States: 2471, Time: 1.005)
+f(n) = 120.0 (Expanded Nodes: 1908, Evaluated States: 2519, Time: 1.022)
+f(n) = 121.0 (Expanded Nodes: 1969, Evaluated States: 2558, Time: 1.036)
+f(n) = 122.0 (Expanded Nodes: 2024, Evaluated States: 2597, Time: 1.049)
+f(n) = 123.0 (Expanded Nodes: 2043, Evaluated States: 2604, Time: 1.052)
+f(n) = 124.0 (Expanded Nodes: 2087, Evaluated States: 2642, Time: 1.065)
+f(n) = 125.0 (Expanded Nodes: 2124, Evaluated States: 2671, Time: 1.076)
+f(n) = 126.0 (Expanded Nodes: 2173, Evaluated States: 2713, Time: 1.092)
+f(n) = 127.0 (Expanded Nodes: 2339, Evaluated States: 2870, Time: 1.146)
+f(n) = 128.0 (Expanded Nodes: 2427, Evaluated States: 2934, Time: 1.168)
+f(n) = 129.0 (Expanded Nodes: 2556, Evaluated States: 3036, Time: 1.206)
+f(n) = 130.0 (Expanded Nodes: 2647, Evaluated States: 3101, Time: 1.229)
+f(n) = 131.0 (Expanded Nodes: 2769, Evaluated States: 3192, Time: 1.263)
+f(n) = 132.0 (Expanded Nodes: 2837, Evaluated States: 3242, Time: 1.282)
+f(n) = 133.0 (Expanded Nodes: 2919, Evaluated States: 3313, Time: 1.307)
+f(n) = 134.0 (Expanded Nodes: 2963, Evaluated States: 3349, Time: 1.321)
+f(n) = 135.0 (Expanded Nodes: 3014, Evaluated States: 3397, Time: 1.338)
+f(n) = 136.0 (Expanded Nodes: 3037, Evaluated States: 3415, Time: 1.345)
+f(n) = 137.0 (Expanded Nodes: 3044, Evaluated States: 3422, Time: 1.347)
+f(n) = 138.0 (Expanded Nodes: 3049, Evaluated States: 3427, Time: 1.35)
+f(n) = 140.0 (Expanded Nodes: 3057, Evaluated States: 3435, Time: 1.353)
+f(n) = 141.0 (Expanded Nodes: 3062, Evaluated States: 3440, Time: 1.355)
+f(n) = 142.0 (Expanded Nodes: 3065, Evaluated States: 3443, Time: 1.356)
+f(n) = 143.0 (Expanded Nodes: 3071, Evaluated States: 3449, Time: 1.359)
+f(n) = 144.0 (Expanded Nodes: 3075, Evaluated States: 3453, Time: 1.361)
+f(n) = 145.0 (Expanded Nodes: 3083, Evaluated States: 3461, Time: 1.364)
+f(n) = 146.0 (Expanded Nodes: 3095, Evaluated States: 3470, Time: 1.368)
+f(n) = 147.0 (Expanded Nodes: 3101, Evaluated States: 3476, Time: 1.37)
+f(n) = 148.0 (Expanded Nodes: 3111, Evaluated States: 3482, Time: 1.373)
+f(n) = 149.0 (Expanded Nodes: 3115, Evaluated States: 3486, Time: 1.375)
+f(n) = 150.0 (Expanded Nodes: 3124, Evaluated States: 3491, Time: 1.377)
+f(n) = 151.0 (Expanded Nodes: 3133, Evaluated States: 3497, Time: 1.379)
+f(n) = 152.0 (Expanded Nodes: 3139, Evaluated States: 3499, Time: 1.38)
+f(n) = 153.0 (Expanded Nodes: 3143, Evaluated States: 3499, Time: 1.38)
+f(n) = 154.0 (Expanded Nodes: 3145, Evaluated States: 3501, Time: 1.381)
+f(n) = 155.0 (Expanded Nodes: 3155, Evaluated States: 3507, Time: 1.384)
+f(n) = 156.0 (Expanded Nodes: 3161, Evaluated States: 3513, Time: 1.386)
+f(n) = 157.0 (Expanded Nodes: 3171, Evaluated States: 3519, Time: 1.389)
+f(n) = 158.0 (Expanded Nodes: 3209, Evaluated States: 3563, Time: 1.407)
+f(n) = 159.0 (Expanded Nodes: 3221, Evaluated States: 3569, Time: 1.409)
+f(n) = 160.0 (Expanded Nodes: 3287, Evaluated States: 3639, Time: 1.438)
+f(n) = 161.0 (Expanded Nodes: 3316, Evaluated States: 3664, Time: 1.448)
+f(n) = 162.0 (Expanded Nodes: 3396, Evaluated States: 3748, Time: 1.479)
+f(n) = 163.0 (Expanded Nodes: 3442, Evaluated States: 3790, Time: 1.495)
+f(n) = 164.0 (Expanded Nodes: 3578, Evaluated States: 3934, Time: 1.547)
+f(n) = 165.0 (Expanded Nodes: 3622, Evaluated States: 3974, Time: 1.562)
+f(n) = 166.0 (Expanded Nodes: 3737, Evaluated States: 4085, Time: 1.6)
+f(n) = 167.0 (Expanded Nodes: 3807, Evaluated States: 4163, Time: 1.629)
+f(n) = 168.0 (Expanded Nodes: 3812, Evaluated States: 4168, Time: 1.631)
+f(n) = 169.0 (Expanded Nodes: 3888, Evaluated States: 4250, Time: 1.662)
+f(n) = 170.0 (Expanded Nodes: 3915, Evaluated States: 4275, Time: 1.672)
+f(n) = 171.0 (Expanded Nodes: 4012, Evaluated States: 4374, Time: 1.709)
+f(n) = 172.0 (Expanded Nodes: 4058, Evaluated States: 4418, Time: 1.727)
+f(n) = 173.0 (Expanded Nodes: 4224, Evaluated States: 4588, Time: 1.788)
+f(n) = 174.0 (Expanded Nodes: 4286, Evaluated States: 4650, Time: 1.812)
+f(n) = 175.0 (Expanded Nodes: 4417, Evaluated States: 4779, Time: 1.859)
+f(n) = 176.0 (Expanded Nodes: 4470, Evaluated States: 4830, Time: 1.877)
+f(n) = 177.0 (Expanded Nodes: 4508, Evaluated States: 4870, Time: 1.893)
+f(n) = 178.0 (Expanded Nodes: 4514, Evaluated States: 4872, Time: 1.894)
+f(n) = 179.0 (Expanded Nodes: 4570, Evaluated States: 4926, Time: 1.915)
+f(n) = 180.0 (Expanded Nodes: 4572, Evaluated States: 4928, Time: 1.916)
+f(n) = 181.0 (Expanded Nodes: 4613, Evaluated States: 4969, Time: 1.933)
+f(n) = 182.0 (Expanded Nodes: 4635, Evaluated States: 4993, Time: 1.943)
+f(n) = 183.0 (Expanded Nodes: 4756, Evaluated States: 5110, Time: 1.989)
+f(n) = 184.0 (Expanded Nodes: 4772, Evaluated States: 5124, Time: 1.995)
+f(n) = 185.0 (Expanded Nodes: 4962, Evaluated States: 5314, Time: 2.068)
+f(n) = 186.0 (Expanded Nodes: 10180, Evaluated States: 10938, Time: 3.796)
+f(n) = 187.0 (Expanded Nodes: 10490, Evaluated States: 11254, Time: 3.914)
+f(n) = 188.0 (Expanded Nodes: 10705, Evaluated States: 11460, Time: 3.991)
+f(n) = 189.0 (Expanded Nodes: 11090, Evaluated States: 11849, Time: 4.132)
+f(n) = 190.0 (Expanded Nodes: 11345, Evaluated States: 12101, Time: 4.225)
+f(n) = 191.0 (Expanded Nodes: 11671, Evaluated States: 12427, Time: 4.343)
+f(n) = 192.0 (Expanded Nodes: 11909, Evaluated States: 12665, Time: 4.429)
+f(n) = 193.0 (Expanded Nodes: 12084, Evaluated States: 12843, Time: 4.495)
+f(n) = 194.0 (Expanded Nodes: 12230, Evaluated States: 12987, Time: 4.547)
+f(n) = 195.0 (Expanded Nodes: 12339, Evaluated States: 13091, Time: 4.584)
+f(n) = 196.0 (Expanded Nodes: 12502, Evaluated States: 13255, Time: 4.65)
+f(n) = 197.0 (Expanded Nodes: 12539, Evaluated States: 13287, Time: 4.664)
+Extracting plan with execution delta: 1.0
+Problem Solved
+0: (retrieve m1 c4)
+0.0: -----waiting---- [4.0]
+4.0: (ON_CRATE_RETRIEVED m1 c4)
+4.0: (recharge m1)
+4.0: (load l2 c4)
+4.0: -----waiting---- [5.0]
+5.0: (ON_RECHARGED m1)
+5.0: (recharge m1)
+5.0: -----waiting---- [6.0]
+6.0: (ON_RECHARGED m1)
+6.0: (recharge m1)
+6.0: -----waiting---- [7.0]
+7.0: (ON_RECHARGED m1)
+7.0: (recharge m1)
+7.0: -----waiting---- [8.0]
+8.0: (ON_RECHARGED m1)
+8.0: (ON_CRATE_LOADED l2 c4)
+8.0: (retrieve2 m2 m1 c3)
+8.0: -----waiting---- [23.0]
+23.0: (ON_CRATE_RETRIEVED m1 c3)
+23.0: (ON_CRATE_RETRIEVED m2 c3)
+23.0: (load l1 c3)
+23.0: (recharge m2)
+23.0: (recharge m1)
+23.0: -----waiting---- [24.0]
+24.0: (ON_RECHARGED m1)
+24.0: (ON_RECHARGED m2)
+24.0: (recharge m2)
+24.0: (recharge m1)
+24.0: -----waiting---- [25.0]
+25.0: (ON_RECHARGED m1)
+25.0: (ON_RECHARGED m2)
+25.0: (recharge m2)
+25.0: (recharge m1)
+25.0: -----waiting---- [26.0]
+26.0: (ON_RECHARGED m1)
+26.0: (ON_RECHARGED m2)
+26.0: (recharge m2)
+26.0: (recharge m1)
+26.0: -----waiting---- [27.0]
+27.0: (ON_RECHARGED m1)
+27.0: (ON_RECHARGED m2)
+27.0: (ON_CRATE_LOADED l1 c3)
+27.0: (recharge m2)
+27.0: (recharge m1)
+27.0: -----waiting---- [28.0]
+28.0: (ON_RECHARGED m1)
+28.0: (ON_RECHARGED m2)
+28.0: (recharge m2)
+28.0: (recharge m1)
+28.0: -----waiting---- [29.0]
+29.0: (ON_RECHARGED m1)
+29.0: (ON_RECHARGED m2)
+29.0: (recharge m2)
+29.0: (recharge m1)
+29.0: -----waiting---- [30.0]
+30.0: (ON_RECHARGED m1)
+30.0: (ON_RECHARGED m2)
+30.0: (recharge m2)
+30.0: (recharge m1)
+30.0: -----waiting---- [31.0]
+31.0: (ON_RECHARGED m1)
+31.0: (ON_RECHARGED m2)
+31.0: (recharge m2)
+31.0: (recharge m1)
+31.0: -----waiting---- [32.0]
+32.0: (ON_RECHARGED m1)
+32.0: (ON_RECHARGED m2)
+32.0: (recharge m2)
+32.0: (recharge m1)
+32.0: -----waiting---- [33.0]
+33.0: (ON_RECHARGED m1)
+33.0: (ON_RECHARGED m2)
+33.0: (recharge m1)
+33.0: (recharge m2)
+33.0: -----waiting---- [34.0]
+34.0: (ON_RECHARGED m1)
+34.0: (ON_RECHARGED m2)
+34.0: (recharge m1)
+34.0: (recharge m2)
+34.0: -----waiting---- [35.0]
+35.0: (ON_RECHARGED m1)
+35.0: (ON_RECHARGED m2)
+35.0: (recharge m2)
+35.0: (recharge m1)
+35.0: -----waiting---- [36.0]
+36.0: (ON_RECHARGED m1)
+36.0: (ON_RECHARGED m2)
+36.0: (recharge m1)
+36.0: (recharge m2)
+36.0: -----waiting---- [37.0]
+37.0: (ON_RECHARGED m1)
+37.0: (ON_RECHARGED m2)
+37.0: (recharge m2)
+37.0: (recharge m1)
+37.0: -----waiting---- [38.0]
+38.0: (ON_RECHARGED m1)
+38.0: (ON_RECHARGED m2)
+38.0: (retrieve2 m1 m2 c1)
+38.0: -----waiting---- [50.0]
+50.0: (ON_CRATE_RETRIEVED m2 c1)
+50.0: (ON_CRATE_RETRIEVED m1 c1)
+50.0: (load l1 c1)
+50.0: (recharge m2)
+50.0: (recharge m1)
+50.0: -----waiting---- [51.0]
+51.0: (ON_RECHARGED m1)
+51.0: (ON_RECHARGED m2)
+51.0: (recharge m2)
+51.0: (recharge m1)
+51.0: -----waiting---- [52.0]
+52.0: (ON_RECHARGED m1)
+52.0: (ON_RECHARGED m2)
+52.0: (recharge m2)
+52.0: (recharge m1)
+52.0: -----waiting---- [53.0]
+53.0: (ON_RECHARGED m1)
+53.0: (ON_RECHARGED m2)
+53.0: (recharge m2)
+53.0: (recharge m1)
+53.0: -----waiting---- [54.0]
+54.0: (ON_RECHARGED m1)
+54.0: (ON_RECHARGED m2)
+54.0: (ON_CRATE_LOADED l1 c1)
+54.0: (recharge m2)
+54.0: (recharge m1)
+54.0: -----waiting---- [55.0]
+55.0: (ON_RECHARGED m1)
+55.0: (ON_RECHARGED m2)
+55.0: (retrieve2 m1 m2 c2)
+55.0: -----waiting---- [68.0]
+68.0: (ON_CRATE_RETRIEVED m1 c2)
+68.0: (ON_CRATE_RETRIEVED m2 c2)
+68.0: (recharge m2)
+68.0: (recharge m1)
+68.0: (load l1 c2)
+68.0: -----waiting---- [69.0]
+69.0: (ON_RECHARGED m1)
+69.0: (ON_RECHARGED m2)
+69.0: -----waiting---- [74.0]
+74.0: (ON_CRATE_LOADED l1 c2)
+Plan-Length:185
+Elapsed Time: 74.0
+Metric (Search):128.0
+Planning Time:8492
+Heuristic Time:7958
+Search Time:8243
+Expanded Nodes:23597
+States Evaluated:25761
+Fixed constraint violations during search (zero-crossing):0
+Number of Dead-Ends detected:0
+Number of Duplicates detected:16337

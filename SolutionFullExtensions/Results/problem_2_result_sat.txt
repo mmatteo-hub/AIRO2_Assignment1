@@ -1,0 +1,140 @@
+Domain parsed
+Problem parsed
+Grounding..
+Grounding Time: 33
+(Pre Simplification) - |A|+|P|+|E|: 64
+AIBR :: Number of Supporters = 158
+(After Easy Simplification) - |A|+|P|+|E|: 48
+|F|:24
+|X|:11
+line 21:13 mismatched character '\r' expecting 'd'
+Grounding and Simplification finished
+|A|:20
+|P|:12
+|E|:16
+Delta time heuristic model:1.0
+Delta time planning model:1.0
+Delta time search-execution model:1.0
+Delta time validation model:1
+ha:false htfalse
+AIBR selected
+Setting horizon to:NaN
+Helpful Action Pruning Activated
+Running WA-STAR
+h(n = s_0)=48.0
+f(n) = 48.0 (Expanded Nodes: 0, Evaluated States: 0, Time: 0.004)
+f(n) = 67.0 (Expanded Nodes: 1, Evaluated States: 8, Time: 0.025)
+f(n) = 68.0 (Expanded Nodes: 2, Evaluated States: 9, Time: 0.027)
+f(n) = 75.0 (Expanded Nodes: 6, Evaluated States: 21, Time: 0.042)
+f(n) = 80.0 (Expanded Nodes: 12, Evaluated States: 35, Time: 0.054)
+f(n) = 81.0 (Expanded Nodes: 19, Evaluated States: 51, Time: 0.073)
+f(n) = 82.0 (Expanded Nodes: 22, Evaluated States: 55, Time: 0.078)
+f(n) = 89.0 (Expanded Nodes: 24, Evaluated States: 58, Time: 0.081)
+f(n) = 90.0 (Expanded Nodes: 33, Evaluated States: 68, Time: 0.092)
+f(n) = 91.0 (Expanded Nodes: 43, Evaluated States: 82, Time: 0.105)
+f(n) = 93.0 (Expanded Nodes: 45, Evaluated States: 84, Time: 0.107)
+f(n) = 95.0 (Expanded Nodes: 50, Evaluated States: 91, Time: 0.112)
+f(n) = 96.0 (Expanded Nodes: 6494, Evaluated States: 9789, Time: 3.21)
+f(n) = 97.0 (Expanded Nodes: 16199, Evaluated States: 23320, Time: 7.316)
+f(n) = 98.0 (Expanded Nodes: 17346, Evaluated States: 24738, Time: 7.762)
+f(n) = 99.0 (Expanded Nodes: 18408, Evaluated States: 25976, Time: 8.15)
+f(n) = 100.0 (Expanded Nodes: 19318, Evaluated States: 27051, Time: 8.486)
+f(n) = 101.0 (Expanded Nodes: 20238, Evaluated States: 28168, Time: 8.84)
+f(n) = 102.0 (Expanded Nodes: 21056, Evaluated States: 29110, Time: 9.132)
+f(n) = 103.0 (Expanded Nodes: 22257, Evaluated States: 30540, Time: 9.587)
+-------------Time: 10s ; Expanded Nodes: 23377 (Avg-Speed 2337.0 n/s); Evaluated States: 31939
+Extracting plan with execution delta: 1.0
+Problem Solved
+0: (retrieve2 m2 m1 c3)
+0.0: -----waiting---- [5.0]
+5.0: (ON_CRATE_RETRIEVED m1 c3)
+5.0: (ON_CRATE_RETRIEVED m2 c3)
+5.0: (recharge m2)
+5.0: (load l2 c3)
+5.0: -----waiting---- [6.0]
+6.0: (ON_RECHARGED m2)
+6.0: (recharge m1)
+6.0: (retrieve m2 c4)
+6.0: -----waiting---- [7.0]
+7.0: (ON_RECHARGED m1)
+7.0: -----waiting---- [9.0]
+9.0: (ON_CRATE_LOADED l2 c3)
+9.0: -----waiting---- [10.0]
+10.0: (ON_CRATE_RETRIEVED m2 c4)
+10.0: (recharge m2)
+10.0: (load l2 c4)
+10.0: -----waiting---- [11.0]
+11.0: (ON_RECHARGED m2)
+11.0: (recharge m2)
+11.0: -----waiting---- [12.0]
+12.0: (ON_RECHARGED m2)
+12.0: (recharge m2)
+12.0: -----waiting---- [13.0]
+13.0: (ON_RECHARGED m2)
+13.0: (recharge m2)
+13.0: -----waiting---- [14.0]
+14.0: (ON_RECHARGED m2)
+14.0: (ON_CRATE_LOADED l2 c4)
+14.0: (retrieve2 m1 m2 c1)
+14.0: -----waiting---- [20.0]
+20.0: (ON_CRATE_RETRIEVED m2 c1)
+20.0: (ON_CRATE_RETRIEVED m1 c1)
+20.0: (load l1 c1)
+20.0: -----waiting---- [21.0]
+21.0: (recharge m2)
+21.0: (recharge m1)
+21.0: -----waiting---- [22.0]
+22.0: (ON_RECHARGED m1)
+22.0: (ON_RECHARGED m2)
+22.0: (recharge m2)
+22.0: (recharge m1)
+22.0: -----waiting---- [23.0]
+23.0: (ON_RECHARGED m1)
+23.0: (ON_RECHARGED m2)
+23.0: (recharge m2)
+23.0: (recharge m1)
+23.0: -----waiting---- [24.0]
+24.0: (ON_RECHARGED m1)
+24.0: (ON_RECHARGED m2)
+24.0: (ON_CRATE_LOADED l1 c1)
+24.0: (retrieve2 m1 m2 c2)
+24.0: -----waiting---- [37.0]
+37.0: (ON_CRATE_RETRIEVED m1 c2)
+37.0: (ON_CRATE_RETRIEVED m2 c2)
+37.0: (recharge m2)
+37.0: (recharge m1)
+37.0: (load l1 c2)
+37.0: -----waiting---- [38.0]
+38.0: (ON_RECHARGED m1)
+38.0: (ON_RECHARGED m2)
+38.0: -----waiting---- [43.0]
+43.0: (ON_CRATE_LOADED l1 c2)
+Plan-Length:90
+Elapsed Time: 43.0
+Metric (Search):65.0
+Planning Time:10439
+Heuristic Time:9833
+Search Time:10177
+Expanded Nodes:23978
+States Evaluated:33164
+Fixed constraint violations during search (zero-crossing):0
+Number of Dead-Ends detected:0
+Number of Duplicates detected:22918
+NEW COST ==================================================================================>65.0
+Wrong setting for break-ties. Arbitrary tie breaking
+Setting horizon to:65.0
+Helpful Action Pruning Activated
+Running WA-STAR
+h(n = s_0)=48.0
+f(n) = 48.0 (Expanded Nodes: 0, Evaluated States: 0, Time: 0.0)
+f(n) = 67.0 (Expanded Nodes: 1, Evaluated States: 8, Time: 0.004)
+f(n) = 68.0 (Expanded Nodes: 2, Evaluated States: 9, Time: 0.005)
+f(n) = 75.0 (Expanded Nodes: 6, Evaluated States: 21, Time: 0.011)
+f(n) = 80.0 (Expanded Nodes: 12, Evaluated States: 35, Time: 0.019)
+f(n) = 81.0 (Expanded Nodes: 19, Evaluated States: 51, Time: 0.028)
+f(n) = 82.0 (Expanded Nodes: 22, Evaluated States: 55, Time: 0.03)
+f(n) = 89.0 (Expanded Nodes: 24, Evaluated States: 58, Time: 0.032)
+f(n) = 90.0 (Expanded Nodes: 33, Evaluated States: 68, Time: 0.037)
+f(n) = 91.0 (Expanded Nodes: 43, Evaluated States: 82, Time: 0.043)
+f(n) = 93.0 (Expanded Nodes: 45, Evaluated States: 84, Time: 0.043)
+f(n) = 95.0 (Expanded Nodes: 50, Evaluated States: 91, Time: 0.046)
